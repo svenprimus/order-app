@@ -1,0 +1,9 @@
+:root {
+    --color-bg-shell: #09212a;
+    --color-bg-main: #1f8ab1;
+    --padding-inline-content: 135px;
+    --padding-block-content: 100px;
+    --height-header: 80px;
+    --height-footer: 80px;
+    --size-logo: 48px;
+}

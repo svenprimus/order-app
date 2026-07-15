@@ -1,0 +1,39 @@
+.content_main {
+    display: flex;
+    gap: 4px;
+}
+
+.content_wrapper {
+    width: calc(100% - 300px);
+    border: 2px solid black;
+
+    .content {
+        background-color: lightblue;
+        padding: 16px;
+        margin-top: 100px;
+    }
+
+    .category {
+        height: 100px;
+        background-color: black;
+
+        width: 100vw;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50vw);
+    }
+}
+
+.basket_wrapper {
+    width: 300px;
+    border: 2px solid black;
+    padding-inline: 16px;
+
+    .basket {
+        height: 30svh;
+        width: 100%;
+        background-color: gray;
+        position: sticky;
+        top: 0;
+    }
+}
