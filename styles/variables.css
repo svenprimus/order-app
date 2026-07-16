@@ -24,4 +24,7 @@
     --padding-content-block: clamp(32px, calc((100svw - 400px) * 18 / 1000 + 32px), 50px);
     --padding-content-limit: max(calc(50% - 720px), var(--padding-content-inline));
     --padding-content-small: clamp(16px, calc((100vw - 400px) * 119 / 840 + 16px), var(--padding-content-inline));
+
+    /* TODO: */
+    /* - font size clamping */
 }

@@ -20,8 +20,8 @@ footer {
     align-items: center;
     justify-content: center;
 
-    .nav-invisible,
-    .nav-visible {
+    .nav-desk-invisible,
+    .nav-desk-visible {
         ul {
             display: inherit;
         }
@@ -155,7 +155,7 @@ main {
     .header-main {
         justify-content: space-between;
 
-        .nav-invisible {
+        .nav-desk-invisible {
             ul {
                 display: none;
             }
