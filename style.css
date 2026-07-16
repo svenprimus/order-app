@@ -1,6 +1,16 @@
+/* #region global definitions */
 .d_none {
     display: none;
 }
+
+p {
+    color: var(--color-font-default);
+    font-family: 'Palanquin';
+    font-weight: 500;
+    line-height: 120%;
+    font-size: 16px;
+}
+/* #endregion global definitions */
 
 .hero {
     display: flex;
