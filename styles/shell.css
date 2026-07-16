@@ -135,7 +135,7 @@ footer {
             font-size: 18px;
         }
 
-        a:hover, p:hover {
+        a:hover {
             opacity: 0.5;
         }
     }
