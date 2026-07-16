@@ -7,7 +7,6 @@ body {
 }
 
 .header-main,
-main,
 footer {
     padding-inline: var(--padding-content-small);
 }
@@ -80,7 +79,7 @@ main {
     flex-grow: 1;
     background-color: var(--color-bg-main);
     padding-block: var(--padding-content-block);
-
+    padding-inline: 20px;
     > section {
         height: 100svh;
     }
@@ -100,6 +99,10 @@ main {
         display: none;
     }
 
+    main {
+        padding-left: var(--padding-content-small);
+        padding-right: 0;
+    }
     footer {
         margin-bottom: 0;
     }
@@ -111,7 +114,7 @@ main {
         padding-inline: var(--padding-content-limit);
     }
     main {
-        padding-right: var(--padding-content-limit);
+        padding-right: calc(50% - 720px);
         padding-left: max(calc(50% - (720px - var(--padding-content-inline))), var(--padding-content-inline));
     }
 }
