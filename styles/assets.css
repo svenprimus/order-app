@@ -1,0 +1,65 @@
+button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00000000;
+    border: none;
+    text-decoration: none;
+    color: var(--color-font-default);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+.button-home {
+    background-image: url('../assets/icons/home.svg');
+}
+
+.button-profile {
+    background-image: url('../assets/icons/profile.svg');
+}
+
+.button-orders {
+    background-image: url('../assets/icons/orders.svg');
+}
+
+.button-basket {
+    background-image: url('../assets/icons/basket-empty-nav.svg');
+}
+
+.button-home:hover,
+.button-home:active {
+    background-image: url('../assets/icons/home-active.svg');
+}
+
+.button-profile:hover,
+.button-profile:active {
+    background-image: url('../assets/icons/profile-active.svg');
+}
+
+.button-orders:hover,
+.button-orders:active {
+    background-image: url('../assets/icons/orders-active.svg');
+}
+
+.button-basket:hover,
+.button-basket:active {
+    background-image: url('../assets/icons/basket-active-nav.svg');
+}
+
+.button-menu:hover,
+.button-menu:active {
+    opacity: 0.5;
+}
+
+.button-star-default {
+    background-image: url('../assets/icons/star-empty.svg');
+    width: 24px;
+    height: 24px;
+}
+
+.button-star-liked {
+    background-image: url('../assets/icons/star.svg');
+    width: 24px;
+    height: 24px;
+}

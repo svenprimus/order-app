@@ -19,25 +19,55 @@
         <script src="./script.js" defer></script>
     </head>
     <body>
-        <header class="header-main">
-            <nav>
-                <a href="#page-top" aria-label="go to top of page">
-                    <div id="page-top">
-                        <img src="./assets/icons/logo-02.svg" alt="website logo" />
-                        <p>Logo Title</p>
-                    </div>
-                </a>
+        <header id="page-top" class="header-main">
+            <a href="#page-top" aria-label="go to top of page">
+                <div>
+                    <img src="./assets/icons/logo-02.svg" alt="website logo" />
+                </div>
+            </a>
+            <nav id="nav-bar" class="nav-desk-invisible">
                 <ul>
                     <li>
-                        <button>Click 1</button>
+                        <a href="#page-top" aria-label="go to top of page">
+                            <button class="button-home"></button>
+                        </a>
                     </li>
                     <li>
-                        <button>Click 2</button>
+                        <button class="button-profile"></button>
+                    </li>
+                    <li>
+                        <button class="button-orders"></button>
+                    </li>
+                    <li class="button-basket-wrapper">
+                        <button class="button-basket"></button>
+                        <div id="button-basket-overlay" class="button-basket-overlay d-none">
+                            <p id="button-basket-counter"></p>
+                        </div>
                     </li>
                 </ul>
+                <button class="button-menu" onclick="toggleMenu()">
+                    <img src="./assets/icons/menu-button.svg" alt="menu-button" />
+                </button>
             </nav>
         </header>
-        <section class="hero"></section>
+        <section class="hero" aria-label="landing image of page">
+            <div class="hero-img-wrapper">
+                <img class="hero-img" src="./assets/img/hero.jpg" alt="title image with various foods" />
+                <img class="hero-logo" src="./assets/img/loco.png" alt="burger comic picture" />
+            </div>
+            <div class="rating-stats-wrapper">
+                <div class="rating-stats">
+                    <button id="button-star" class="button-star-liked" onclick="toggleLike()"></button>
+                    <p class="rating">4.1</p>
+                    <p class="rating-counter">(<span id="rating-counter">317</span>)</p>
+                </div>
+                <h1>Don <span>Fuego</span></h1>
+            </div>
+            <p>
+                ¡Órale, amigo!<br />At Don Fuego, we serve the finest pizzas, burgers, and salads with a fiery Mexican
+                twist. Come hungry, leave shouting:<br />¡Ay, qué rico!
+            </p>
+        </section>
         <main class="content_main">
             <section class="content_wrapper">
                 <div class="category-wrapper">
@@ -76,8 +106,14 @@
         </main>
 
         <footer>
-            <div></div>
+            <div>
+                <a href="https://de.wikipedia.org/wiki/Drucker_(Ger%C3%A4t)" target="_blank">Imprint</a>
+                <a href="https://www.chefkoch.de/rs/s0/cookies/Rezepte.html" target="_blank">Cookie Preferences</a>
+                <div>
+                    <img src="./assets/icons/copyright.svg" alt="copyright icon" />
+                    <p>2026 Don Fuego</p>
+                </div>
+            </div>
         </footer>
-        <nav class="mobile-nav"></nav>
     </body>
 </html>

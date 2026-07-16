@@ -2,8 +2,10 @@
     --color-bg-shell: #e76c1f;
     --color-bg-main: white;
     --color-bg-accent: #fdeadc;
+    --color-bg-accent-strong: #facaac;
     --color-bg-overlay: #363534;
     --color-font-dark: #363534;
+    --color-font-weak: #726d6d;
     --color-font-bright: white;
 
     --height-header: clamp(78px, calc((100dvw - 400px) * 50 / 1000 + 78px), 128px);
@@ -13,11 +15,16 @@
     --height-category-bg: 60px;
     --height-logo: 38px;
     --width-logo: 113px;
-    --width-basket: 435px;
+    --width-basket: clamp(300px, calc((100svw - 800px) * 135 / 600 + 300px), 435px);
 
-    /* --margin-category-top: clamp(92px, calc((400px - 100svw) * 12 / 1000 + 104px), 104px); */
+    --size-logo-hero: clamp(120px, calc((100svw - 400px) * 80 / 1000 + 120px), 200px);
+    --size-button-menu: clamp(30px, calc((100svw - 400px) * 30 / 1000 + 30px), 60px);
+
     --padding-content-inline: 130px;
-    --padding-content-block: 50px;
+    --padding-content-block: clamp(32px, calc((100svw - 400px) * 18 / 1000 + 32px), 50px);
     --padding-content-limit: max(calc(50% - 720px), var(--padding-content-inline));
     --padding-content-small: clamp(16px, calc((100vw - 400px) * 119 / 840 + 16px), var(--padding-content-inline));
+
+    /* TODO: */
+    /* - font size clamping */
 }
