@@ -3,12 +3,13 @@ body {
     flex-direction: column;
     min-height: 100svh;
     overflow-x: hidden;
+    background-color: var(--color-bg-main);
 }
 
 .header-main,
 main,
 footer {
-    padding-inline: clamp(16px, calc((100vw - 400px) * 119 / 840 + 16px), var(--padding-inline-content));
+    padding-inline: var(--padding-content-small);
 }
 
 .header-main {
@@ -27,8 +28,7 @@ footer {
         justify-content: flex-start;
         align-items: center;
 
-        color: white;
-        background-color: gray;
+        color: var(--color-font-bright);
 
         a {
             text-decoration: none;
@@ -38,8 +38,8 @@ footer {
                 align-items: center;
 
                 img {
-                    width: var(--size-logo);
-                    height: var(--size-logo);
+                    width: var(--width-logo);
+                    height: var(--height-logo);
                 }
             }
         }
@@ -69,31 +69,49 @@ footer {
 
 footer {
     background-color: var(--color-bg-shell);
+    margin-bottom: var(--height-nav-mobile);
 
     > div {
         height: var(--height-footer);
-        background-color: gray;
     }
 }
 
 main {
     flex-grow: 1;
     background-color: var(--color-bg-main);
-    padding-block: var(--padding-block-content);
+    padding-block: var(--padding-content-block);
 
     > section {
-        height: 100dvh;
-        background-color: rgb(135, 138, 180);
+        height: 100svh;
+    }
+}
+
+.mobile-nav {
+    width: 100%;
+    height: var(--height-nav-mobile);
+    position: fixed;
+    z-index: 1;
+    bottom: 0;
+    background-color: var(--color-bg-overlay);
+}
+
+@media screen and (min-width: 769px) {
+    .mobile-nav {
+        display: none;
+    }
+
+    footer {
+        margin-bottom: 0;
     }
 }
 
 @media screen and (min-width: 1441px) {
     .header-main,
     footer {
-        padding-inline: max(calc(50% - 720px), var(--padding-inline-content));
+        padding-inline: var(--padding-content-limit);
     }
     main {
-        padding-right: max(calc(50% - 720px), var(--padding-inline-content));
-        padding-left: max(calc(50% - (720px - var(--padding-inline-content))), var(--padding-inline-content));
+        padding-right: var(--padding-content-limit);
+        padding-left: max(calc(50% - (720px - var(--padding-content-inline))), var(--padding-content-inline));
     }
 }
