@@ -23,7 +23,7 @@
             height: var(--size-logo-hero);
             border-radius: 50%;
             border: 13px solid var(--color-bg-accent);
-
+            background-color: var(--color-bg-accent);
             position: absolute;
             bottom: 0;
             left: 50%;
@@ -71,7 +71,7 @@
     /* TODO mobile vs desktop */
     display: none;
     width: var(--width-basket);
-
+    padding-top: calc(var(--height-category) - var(--height-category-bg));
     .basket {
         height: 30svh;
         width: 100%;
