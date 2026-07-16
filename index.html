@@ -20,21 +20,32 @@
     </head>
     <body>
         <header class="header-main">
-            <nav>
-                <a href="#page-top" aria-label="go to top of page">
-                    <div id="page-top">
-                        <img src="./assets/icons/logo-02.svg" alt="website logo" />
-                        <p>Logo Title</p>
-                    </div>
-                </a>
+            <a href="#page-top" aria-label="go to top of page">
+                <div id="page-top">
+                    <img src="./assets/icons/logo-02.svg" alt="website logo" />
+                </div>
+            </a>
+            <nav id="nav-bar" class="nav-visible">
                 <ul>
                     <li>
-                        <button>Click 1</button>
+                        <a href="#page-top" aria-label="go to top of page">
+                            <button><img src="./assets/icons/home.svg" alt="home button" /></button>
+                        </a>
                     </li>
                     <li>
-                        <button>Click 2</button>
+                        <button><img src="./assets/icons/profile.svg" alt="profile button" /></button>
+                    </li>
+                    <li>
+                        <button><img src="./assets/icons/orders.svg" alt="order button" /></button>
+                    </li>
+                    <li class="button-basket">
+                        <button><img src="./assets/icons/basket-empty-nav.svg" alt="basket button" /></button>
+                        <div id="button-basket-overlay" class="button-basket-overlay d_none">
+                            <p id="button-basket-counter"></p>
+                        </div>
                     </li>
                 </ul>
+                <button onclick="toggleMenu()"><img src="./assets/icons/menu-button.svg" alt="menu-button" /></button>
             </nav>
         </header>
         <section class="hero" aria-label="landing image of page">
@@ -45,7 +56,7 @@
             <div>
                 <h1><span>Burger</span>House</h1>
                 <div>
-                    <img src="./assets/icons/star.svg" alt="star icon"/>
+                    <img src="./assets/icons/star.svg" alt="star icon" />
                     <p></p>
                 </div>
             </div>
@@ -90,6 +101,5 @@
         <footer>
             <div></div>
         </footer>
-        <nav class="mobile-nav"></nav>
     </body>
 </html>

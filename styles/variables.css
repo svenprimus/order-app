@@ -16,8 +16,8 @@
     --width-basket: clamp(300px,calc((100svw - 800px) * 135 / 600 + 300px), 435px);
 
     --size-logo-hero: clamp(120px, calc((100svw - 400px) * 80 / 1000 + 120px), 200px);
+    --size-button-menu: clamp(30px, calc((100svw - 400px) * 30 / 1000 + 30px), 60px);
 
-    /* --margin-category-top: clamp(92px, calc((400px - 100svw) * 12 / 1000 + 104px), 104px); */
     --padding-content-inline: 130px;
     --padding-content-block: 50px;
     --padding-content-limit: max(calc(50% - 720px), var(--padding-content-inline));
