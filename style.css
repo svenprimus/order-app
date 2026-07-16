@@ -1,10 +1,10 @@
 /* #region global definitions */
-.d_none {
+.d-none {
     display: none;
 }
 
 p {
-    color: var(--color-font-default);
+    color: var(--color-font-dark);
     font-family: 'Palanquin';
     font-weight: 500;
     line-height: 120%;
@@ -16,13 +16,12 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-inline: var(--padding-content-limit);
+    padding-inline: 16px;
     padding-top: 24px;
     width: 100%;
 
     .hero-img-wrapper {
         position: relative;
-
         margin-bottom: 100px;
 
         .hero-img {
@@ -45,10 +44,54 @@ p {
         }
     }
 
-    h1 {
-        span {
-            color: var(--color-bg-shell);
+    .rating-stats-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+
+        .rating-stats {
+            display: flex;
+            justify-content: space-evenly;
+            gap: 5px;
+            padding-block: 5px;
+            background-color: var(--color-bg-accent-strong);
+            border-radius: 4px;
+            width: 120px;
         }
+
+        h1 {
+            font-family: 'Palanquin Dark';
+            font-weight: 700;
+            font-size: 40px;
+            color: var(--color-font-dark);
+
+            span {
+                color: var(--color-bg-shell);
+            }
+        }
+    }
+
+    p {
+        font-family: 'Palanquin';
+        font-weight: 700;
+        font-size: 22px;
+        color: var(--color-font-dark);
+        text-align: center;
+    }
+
+    .rating {
+        font-family: 'Palanquin Dark';
+        font-size: 20px;
+        font-weight: 400;
+    }
+
+    .rating-counter {
+        width: 40px;
+        font-family: 'Palanquin';
+        font-size: 18px;
+        font-weight: 400;
+        color: var(--color-font-weak);
     }
 }
 
@@ -115,6 +158,13 @@ p {
 
             .hero-logo {
                 transform: translateX(-50%) translateY(33%);
+            }
+        }
+
+        .rating-stats-wrapper {
+            flex-direction: row;
+            .rating-stats {
+                order: 1;
             }
         }
     }

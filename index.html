@@ -29,23 +29,25 @@
                 <ul>
                     <li>
                         <a href="#page-top" aria-label="go to top of page">
-                            <button><img src="./assets/icons/home.svg" alt="home button" /></button>
+                            <button class="button-home"></button>
                         </a>
                     </li>
                     <li>
-                        <button><img src="./assets/icons/profile.svg" alt="profile button" /></button>
+                        <button class="button-profile"></button>
                     </li>
                     <li>
-                        <button><img src="./assets/icons/orders.svg" alt="order button" /></button>
+                        <button class="button-orders"></button>
                     </li>
-                    <li class="button-basket">
-                        <button><img src="./assets/icons/basket-empty-nav.svg" alt="basket button" /></button>
-                        <div id="button-basket-overlay" class="button-basket-overlay d_none">
+                    <li class="button-basket-wrapper">
+                        <button class="button-basket"></button>
+                        <div id="button-basket-overlay" class="button-basket-overlay d-none">
                             <p id="button-basket-counter"></p>
                         </div>
                     </li>
                 </ul>
-                <button onclick="toggleMenu()"><img src="./assets/icons/menu-button.svg" alt="menu-button" /></button>
+                <button class="button-menu" onclick="toggleMenu()">
+                    <img src="./assets/icons/menu-button.svg" alt="menu-button" />
+                </button>
             </nav>
         </header>
         <section class="hero" aria-label="landing image of page">
@@ -53,13 +55,18 @@
                 <img class="hero-img" src="./assets/img/hero.jpg" alt="title image with various foods" />
                 <img class="hero-logo" src="./assets/img/loco.png" alt="burger comic picture" />
             </div>
-            <div>
-                <h1>Don <span>Fuego</span></h1>
-                <div>
-                    <img src="./assets/icons/star.svg" alt="star icon" />
-                    <p></p>
+            <div class="rating-stats-wrapper">
+                <div class="rating-stats">
+                    <button id="button-star" class="button-star-liked" onclick="toggleLike()"></button>
+                    <p class="rating">4.1</p>
+                    <p class="rating-counter">(<span id="rating-counter">317</span>)</p>
                 </div>
+                <h1>Don <span>Fuego</span></h1>
             </div>
+            <p>
+                ¡Órale, amigo!<br />At Don Fuego, we serve the finest pizzas, burgers, and salads with a fiery Mexican
+                twist. Come hungry, leave shouting:<br />¡Ay, qué rico!
+            </p>
         </section>
         <main class="content_main">
             <section class="content_wrapper">
