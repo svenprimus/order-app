@@ -106,7 +106,7 @@ footer {
 
 footer {
     background-color: var(--color-bg-shell);
-    margin-bottom: var(--height-nav-mobile);
+    margin-bottom: calc(var(--height-nav-mobile) - 1px);
     display: flex;
     justify-content: center;
     align-items: center;

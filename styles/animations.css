@@ -10,22 +10,22 @@
     @keyframes fadeInBasket {
         0% {
             opacity: 0;
-            bottom: calc(-1 * var(--height-basket-mobile));
+            bottom: calc(-1 * var(--height-basket-mobile) - var(--height-nav-mobile));
         }
         100% {
             opacity: 1;
-            bottom: 0;
+            bottom: calc(var(--height-nav-mobile) - 1px);
         }
     }
 
     @keyframes fadeOutBasket {
         0% {
             opacity: 1;
-            bottom: 0svh;
+            bottom: 0;
         }
         100% {
             opacity: 0;
-            bottom: calc(-1 * var(--height-basket-mobile));
+            bottom: calc(-1 * var(--height-basket-mobile) - var(--height-nav-mobile));
         }
     }
 }

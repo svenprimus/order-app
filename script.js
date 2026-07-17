@@ -14,9 +14,11 @@ function toggleBasket() {
     if (basketRef.classList.contains('fade_in')) {
         basketRef.classList.remove('fade_in');
         basketRef.classList.add('fade_out');
+        document.getElementById('body').classList.remove('scroll_none');
     } else if (basketRef.classList.contains('fade_out')) {
         basketRef.classList.remove('fade_out');
         basketRef.classList.add('fade_in');
+        document.getElementById('body').classList.add('scroll_none');
     }
 }
 
