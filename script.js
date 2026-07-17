@@ -1,11 +1,11 @@
 function toggleMenu() {
-    const navRef = document.getElementById('nav-bar');
-    if (navRef.classList.contains('nav-desk-invisible')) {
-        navRef.classList.remove('nav-desk-invisible');
+    const navRef = document.getElementById('nav_bar');
+    if (navRef.classList.contains('nav_desk_invisible')) {
+        navRef.classList.remove('nav_desk_invisible');
         navRef.classList.add('nav-desk-visible');
     } else if (navRef.classList.contains('nav-desk-visible')) {
         navRef.classList.remove('nav-desk-visible');
-        navRef.classList.add('nav-desk-invisible');
+        navRef.classList.add('nav_desk_invisible');
     }
 }
 
@@ -21,8 +21,8 @@ function toggleBasket() {
 }
 
 // function renderBasketCount()
-// id="button-basket-overlay"  d_none
-// id="button-basket-counter"
+// id="button_basket_overlay"  d_none
+// id="button_basket_counter"
 
 function toggleLike() {
     renderLikedButton();
