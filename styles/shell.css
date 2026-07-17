@@ -151,6 +151,7 @@ main {
     }
 }
 
+/* #region animations */
 @keyframes growIn {
     from {
         opacity: 0;
@@ -172,6 +173,7 @@ main {
         transform: scaleX(0);
     }
 }
+/* #endregion animations */
 
 @media screen and (min-width: 769px) {
     .header-main {
