@@ -151,24 +151,51 @@ main {
     }
 }
 
+@keyframes growIn {
+    from {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+    to {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+}
+
+@keyframes growOut {
+    from {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+    to {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+}
+
 @media screen and (min-width: 769px) {
     .header-main {
         justify-content: space-between;
 
         .nav-desk-invisible {
             ul {
-                display: none;
+                transform: scaleX(0);
+                animation: growOut 250ms ease-in-out forwards;
             }
-            justify-content: flex-end;
             background-color: #00000000;
             transition: all 250ms ease-in-out;
         }
 
+        .nav-desk-visible {
+            ul {
+                animation: growIn 250ms ease-in-out forwards;
+            }
+        }
+
         nav {
             width: 50%;
-            height: 100%;
-            border-top-left-radius: 64px;
-            border-bottom-left-radius: 64px;
+            height: 80%;
+            border-radius: 64px;
             padding-right: 50px;
             position: inherit;
             justify-content: space-between;
@@ -176,6 +203,7 @@ main {
             ul {
                 width: 75%;
             }
+
             > button {
                 display: inherit;
             }
