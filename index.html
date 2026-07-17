@@ -39,7 +39,7 @@
                         <button class="button-orders"></button>
                     </li>
                     <li class="button-basket-wrapper">
-                        <button class="button-basket"></button>
+                        <button class="button-basket" onclick="toggleBasket()"></button>
                         <div id="button-basket-overlay" class="button-basket-overlay d-none">
                             <p id="button-basket-counter"></p>
                         </div>
@@ -100,7 +100,7 @@
                     </p>
                 </div>
             </section>
-            <section class="basket_wrapper">
+            <section id="basket_wrapper" class="basket_wrapper fade_out">
                 <div class="basket"></div>
             </section>
         </main>

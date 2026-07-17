@@ -9,6 +9,17 @@ function toggleMenu() {
     }
 }
 
+function toggleBasket() {
+    const basketRef = document.getElementById('basket_wrapper');
+    if (basketRef.classList.contains('fade_in')) {
+        basketRef.classList.remove('fade_in');
+        basketRef.classList.add('fade_out');
+    } else if (basketRef.classList.contains('fade_out')) {
+        basketRef.classList.remove('fade_out');
+        basketRef.classList.add('fade_in');
+    }
+}
+
 // function renderBasketCount()
 // id="button-basket-overlay"  d_none
 // id="button-basket-counter"

@@ -146,9 +146,6 @@ main {
     background-color: var(--color-bg-main);
     padding-block: var(--padding-content-block);
     padding-inline: 20px;
-    > section {
-        height: 100svh;
-    }
 }
 
 /* #region animations */
