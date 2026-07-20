@@ -11,55 +11,83 @@ button {
     background-position: 50%;
 }
 
-.button-home {
+.button_home {
     background-image: url('../assets/icons/home.svg');
 }
 
-.button-profile {
+.button_profile {
     background-image: url('../assets/icons/profile.svg');
 }
 
-.button-orders {
+.button_orders {
     background-image: url('../assets/icons/orders.svg');
 }
 
-.button-basket {
+.button_basket {
     background-image: url('../assets/icons/basket-empty-nav.svg');
 }
 
-.button-home:hover,
-.button-home:active {
+.button_home:hover,
+.button_home:active {
     background-image: url('../assets/icons/home-active.svg');
 }
 
-.button-profile:hover,
-.button-profile:active {
+.button_profile:hover,
+.button_profile:active {
     background-image: url('../assets/icons/profile-active.svg');
 }
 
-.button-orders:hover,
-.button-orders:active {
+.button_orders:hover,
+.button_orders:active {
     background-image: url('../assets/icons/orders-active.svg');
 }
 
-.button-basket:hover,
-.button-basket:active {
+.button_basket:hover,
+.button_basket:active {
     background-image: url('../assets/icons/basket-active-nav.svg');
 }
 
-.button-menu:hover,
-.button-menu:active {
+.button_menu:hover,
+.button_menu:active {
     opacity: 0.5;
 }
 
-.button-star-default {
+.button_star-default {
     background-image: url('../assets/icons/star-empty.svg');
     width: 24px;
     height: 24px;
 }
 
-.button-star-liked {
+.button_star_liked {
     background-image: url('../assets/icons/star.svg');
     width: 24px;
     height: 24px;
+}
+
+.button_trash {
+    background-image: url('../assets/icons/delete.svg');
+}
+
+.basket_list::-webkit-scrollbar {
+    width: 26px;
+}
+
+.basket_list::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px 6px transparent;
+    border: solid 10px transparent;
+}
+
+.basket_list::-webkit-scrollbar-thumb {
+    border-radius: 30px;
+    box-shadow: inset 0 0 6px 6px var(--color-bg-accent);
+    border: solid 10px transparent;
+}
+
+.basket_list::-webkit-scrollbar-thumb:hover {
+    box-shadow: inset 0 0 6px 6px var(--color-bg-accent-strong);
+    border: solid 10px transparent;
+}
+
+.basket_wrapper::selection {
+    background-color: var(--color-bg-accent);
 }

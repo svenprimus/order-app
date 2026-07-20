@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="./styles/fonts.css" />
         <link rel="stylesheet" href="./styles/standard.css" />
         <link rel="stylesheet" href="./styles/assets.css" />
+        <link rel="stylesheet" href="./styles/animations.css" />
 
         <link rel="stylesheet" href="./styles/shell.css" />
         <link rel="stylesheet" href="./style.css" />
@@ -18,48 +19,48 @@
         <script src="./script/templates.js"></script>
         <script src="./script.js" defer></script>
     </head>
-    <body>
-        <header id="page-top" class="header-main">
-            <a href="#page-top" aria-label="go to top of page">
+    <body id="body">
+        <header id="page_top" class="header_main">
+            <a href="#page_top" aria-label="go to top of page">
                 <div>
                     <img src="./assets/icons/logo-02.svg" alt="website logo" />
                 </div>
             </a>
-            <nav id="nav-bar" class="nav-desk-invisible">
+            <nav id="nav_bar" class="nav_desk_invisible">
                 <ul>
                     <li>
-                        <a href="#page-top" aria-label="go to top of page">
-                            <button class="button-home"></button>
+                        <a href="#page_top" aria-label="go to top of page">
+                            <button class="button_home"></button>
                         </a>
                     </li>
                     <li>
-                        <button class="button-profile"></button>
+                        <button class="button_profile"></button>
                     </li>
                     <li>
-                        <button class="button-orders"></button>
+                        <button class="button_orders"></button>
                     </li>
-                    <li class="button-basket-wrapper">
-                        <button class="button-basket"></button>
-                        <div id="button-basket-overlay" class="button-basket-overlay d-none">
-                            <p id="button-basket-counter"></p>
+                    <li class="button_basket_wrapper">
+                        <button class="button_basket" onclick="toggleBasket()"></button>
+                        <div id="button_basket_overlay" class="button_basket_overlay d_none">
+                            <p id="button_basket_counter"></p>
                         </div>
                     </li>
                 </ul>
-                <button class="button-menu" onclick="toggleMenu()">
+                <button class="button_menu" onclick="toggleMenu()">
                     <img src="./assets/icons/menu-button.svg" alt="menu-button" />
                 </button>
             </nav>
         </header>
         <section class="hero" aria-label="landing image of page">
-            <div class="hero-img-wrapper">
-                <img class="hero-img" src="./assets/img/hero.jpg" alt="title image with various foods" />
-                <img class="hero-logo" src="./assets/img/loco.png" alt="burger comic picture" />
+            <div class="hero_img_wrapper">
+                <img class="hero_img" src="./assets/img/hero.jpg" alt="title image with various foods" />
+                <img class="hero_logo" src="./assets/img/loco.png" alt="burger comic picture" />
             </div>
-            <div class="rating-stats-wrapper">
-                <div class="rating-stats">
-                    <button id="button-star" class="button-star-liked" onclick="toggleLike()"></button>
+            <div class="rating_stats_wrapper">
+                <div class="rating_stats">
+                    <button id="button_star" class="button_star_liked" onclick="toggleLike()"></button>
                     <p class="rating">4.1</p>
-                    <p class="rating-counter">(<span id="rating-counter">317</span>)</p>
+                    <p class="rating_counter">(<span id="rating_counter">317</span>)</p>
                 </div>
                 <h1>Don <span>Fuego</span></h1>
             </div>
@@ -70,38 +71,63 @@
         </section>
         <main class="content_main">
             <section class="content_wrapper">
-                <div class="category-wrapper">
-                    <div class="category-bg"></div>
+                <div class="category_headline_wrapper">
+                    <div class="category_headline">
+                        <img src="./assets/img/category-burger.svg" alt="comic picture of a hamburger" />
+                        <h2>Burger & Sandwiches</h2>
+                    </div>
                 </div>
-                <div class="content">
+                <div class="category_content_wrapper">
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, velit deleniti! Dolores soluta
                         temporibus voluptatum accusamus repudiandae explicabo deserunt ullam minima pariatur?
                         Consectetur repellendus cum laborum doloribus accusantium commodi suscipit iure aliquid alias,
-                    </p>
-                </div>
-                <div class="category-wrapper">
-                    <div class="category-bg"></div>
-                </div>
-                <div class="content">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, velit deleniti! Dolores soluta
-                        temporibus voluptatum accusamus repudiandae explicabo deserunt ullam minima pariatur?
-                        Consectetur repellendus cum laborum doloribus accusantium commodi suscipit iure aliquid alias,
-                    </p>
-                </div>
-                <div class="category-wrapper">
-                    <div class="category-bg"></div>
-                </div>
-                <div class="content">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, velit deleniti! Dolores soluta
-                        temporibus voluptatum accusamus repudiandae explicabo deserunt ullam minima pariatur?
                     </p>
                 </div>
             </section>
-            <section class="basket_wrapper">
-                <div class="basket"></div>
+            <section id="basket_wrapper" class="basket_wrapper fade_out">
+                <div class="basket">
+                    <h2>Your Basket</h2>
+                    <ul id="basket_list" class="basket_list">
+                        <div class="basket_item">
+                            <table>
+                                <tr>
+                                    <th>1x Veggi</th>
+                                    <td><button class="button_trash d_none"></button></td>
+                                </tr>
+                                <tr>
+                                    <td class="basket_item_count">
+                                        <button class="button_trash"></button>
+                                        <p>2</p>
+                                        <button>+</button>
+                                    </td>
+                                    <th>33,80</th>
+                                </tr>
+                            </table>
+                        </div>
+                    </ul>
+                    <div class="payment_table_wrapper">
+                        <table class="payment_table">
+                            <tr>
+                                <td>Subtotal</td>
+                                <td>36.12 €</td>
+                            </tr>
+                            <tr>
+                                <td>Delivery Fee</td>
+                                <td>4.99€</td>
+                            </tr>
+                        </table>
+                        <hr />
+                        <table class="payment_total">
+                            <tr>
+                                <th>Total</th>
+                                <th>41.68€</th>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <button class="button_buy"><p>Buy now (41,69€)</p></button>
+                </div>
             </section>
         </main>
 
