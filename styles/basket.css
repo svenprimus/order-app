@@ -150,7 +150,7 @@
         width: var(--width-basket);
         padding-top: calc(var(--height-category) - var(--height-category_headline));
         position: static;
-        height: 100svw;
+        align-self: stretch;
 
         .basket {
             height: auto;

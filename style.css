@@ -122,7 +122,6 @@ ul {
 .content_main {
     display: flex;
     flex-direction: column;
-    align-items: space-between;
     justify-content: space-between;
     position: relative;
     gap: 30px;
