@@ -16,11 +16,11 @@
         <link rel="stylesheet" href="./styles/basket.css" />
         <link rel="stylesheet" href="./style.css" />
 
-        <script src="./script/db.js"></script>
-        <script src="./script/templates.js"></script>
+        <script src="./scripts/db.js"></script>
+        <script src="./scripts/templates.js"></script>
         <script src="./script.js" defer></script>
     </head>
-    <body id="body">
+    <body id="body" onload="init()">
         <header id="page_top" class="header_main">
             <a href="#page_top" aria-label="go to top of page">
                 <div>
@@ -73,24 +73,21 @@
 
         <main class="content_main">
             <nav class="content_main_nav">
-                <ul id="content_main_nav_list" class="move_out_categories">
-                    <li><a href="#category_X">Burger</a></li>
-                    <hr />
-                </ul>
+                <ul id="content_main_nav_list" class="move_out_categories"></ul>
                 <button class="button_categories" onclick="toggleCategoryNavView()">
                     <img src="./assets/icons/filter.svg" alt="filter icon" />
                 </button>
             </nav>
             <section class="content_main_content">
-                <section class="content_wrapper">
-                    <div id="category_X" class="category_headline_wrapper">
+                <section id="content_wrapper" class="content_wrapper">
+                    <!-- <div id="category_X" class="category_headline_wrapper">
                         <div class="category_headline">
                             <img src="./assets/img/menu_items/category-burger.svg" alt="comic picture of a hamburger" />
                             <h2>Burger & Sandwiches</h2>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <ul class="category_content_wrapper">
+                    <!-- <ul class="category_content_wrapper">
                         <li class="food_item">
                             <img src="./assets/img/menu_items/burger-veggie.jpg" alt="veggie burger" />
                             <div class="food_item_description">
@@ -106,7 +103,7 @@
                                 <button><p>Add to basket</p></button>
                             </div>
                         </li>
-                    </ul>
+                    </ul> -->
                 </section>
                 <section id="basket_wrapper" class="basket_wrapper move_out_basket">
                     <div class="basket">
