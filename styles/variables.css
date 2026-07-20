@@ -11,6 +11,7 @@
     --height-header: clamp(78px, calc((100dvw - 400px) * 50 / 1000 + 78px), 128px);
     --height-footer: 128px;
     --height-nav-mobile: 78px;
+    --height-nav-category: 76px;
     --height-category: clamp(92px, calc((400px - 100svw) * 12 / 1000 + 104px), 104px);
     --height-category_headline: 60px;
     --height-basket-mobile: 85svh;
@@ -20,6 +21,7 @@
 
     --size-logo-hero: clamp(120px, calc((100svw - 400px) * 80 / 1000 + 120px), 200px);
     --size-button-menu: clamp(30px, calc((100svw - 400px) * 30 / 1000 + 30px), 60px);
+    --size-button-categories: 48px;
     --size-category-icon-mobile: 60px;
     --size-category-icon-desktop: 90px;
 

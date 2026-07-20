@@ -21,7 +21,7 @@ footer {
     justify-content: center;
 
     .nav_desk_invisible,
-    .nav-desk-visible {
+    .nav_desk_visible {
         ul {
             display: inherit;
         }
@@ -148,30 +148,6 @@ main {
     padding-inline: 20px;
 }
 
-/* #region animations */
-@keyframes growIn {
-    from {
-        opacity: 0;
-        transform: scaleX(0);
-    }
-    to {
-        opacity: 1;
-        transform: scaleX(1);
-    }
-}
-
-@keyframes growOut {
-    from {
-        opacity: 1;
-        transform: scaleX(1);
-    }
-    to {
-        opacity: 0;
-        transform: scaleX(0);
-    }
-}
-/* #endregion animations */
-
 @media screen and (min-width: 769px) {
     .header_main {
         justify-content: space-between;
@@ -185,7 +161,7 @@ main {
             transition: all 250ms ease-in-out;
         }
 
-        .nav-desk-visible {
+        .nav_desk_visible {
             ul {
                 animation: growIn 250ms ease-in-out forwards;
             }

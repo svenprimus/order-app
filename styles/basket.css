@@ -1,0 +1,166 @@
+.basket_wrapper {
+    position: fixed;
+    width: 94%;
+    right: 3%;
+    height: auto;
+
+    .basket {
+        max-height: var(--height-basket-mobile);
+        width: 100%;
+        background-color: var(--color-bg-overlay);
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+
+        padding-inline: 22px;
+        padding-block: 40px;
+
+        h2 {
+            color: var(--color-bg-accent);
+        }
+
+        > p {
+            text-align: center;
+            color: var(--color-bg-accent);
+            font-size: 24px;
+            margin-bottom: 70px;
+            margin-top: 40px;
+        }
+
+        table {
+            padding: 16px;
+            border-collapse: collapse;
+            gap: 50px;
+
+            tr {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            th,
+            td {
+                padding-block: 4px;
+                text-align: left;
+            }
+        }
+
+        hr {
+            width: 100%;
+            border: 2px solid white;
+            margin-block: 12px;
+        }
+
+        .basket_list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+            overflow-y: auto;
+            max-height: 330px;
+
+            .basket_item {
+                width: 100%;
+                border-radius: 20px;
+                background-color: var(--color-bg-accent);
+                padding: 16px;
+                max-height: 30%;
+
+                table {
+                    width: 100%;
+
+                    th {
+                        font-size: 22px;
+                        font-weight: 700;
+                        color: var(--color-font-dark);
+                        font-family: 'Palanquin';
+                        line-height: 120%;
+                    }
+
+                    td > p,
+                    button {
+                        font-size: 24px;
+                        font-weight: 600;
+                        color: var(--color-font-dark);
+                        font-family: 'Palanquin';
+                        line-height: 120%;
+                    }
+
+                    .basket_item_count {
+                        display: flex;
+                        align-items: flex-end;
+                        gap: 4px;
+                    }
+                }
+
+                .button_trash {
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+        }
+
+        .payment_table,
+        .payment_table_wrapper,
+        .payment_total {
+            width: 100%;
+
+            td {
+                font-size: 20px;
+                font-weight: 600;
+                color: var(--color-font-bright);
+                font-family: 'Palanquin';
+                line-height: 120%;
+            }
+
+            th {
+                font-size: 22px;
+                font-weight: 700;
+                color: var(--color-font-bright);
+                font-family: 'Palanquin';
+                line-height: 120%;
+            }
+        }
+
+        .button_buy {
+            padding-inline: 24px;
+            padding-block: 12px;
+            height: 50px;
+            border-radius: 60px;
+            background-color: var(--color-bg-shell);
+
+            p {
+                font-size: 24px;
+                font-weight: 700;
+                color: var(--color-font-bright);
+                font-family: 'Palanquin';
+                line-height: 120%;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .basket_wrapper {
+        width: var(--width-basket);
+        padding-top: calc(var(--height-category) - var(--height-category_headline));
+        position: static;
+        height: 100svw;
+
+        .basket {
+            height: auto;
+            width: 100%;
+            background-color: var(--color-bg-overlay);
+            position: sticky;
+            top: 0;
+
+            border-top-right-radius: 0;
+            border-bottom-left-radius: 30px;
+        }
+    }
+}
