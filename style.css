@@ -3,10 +3,6 @@
     display: none;
 }
 
-.scroll_none {
-    overflow-y: hidden;
-}
-
 p {
     color: var(--color-font-dark);
     font-family: 'Palanquin';
@@ -21,6 +17,18 @@ h2 {
     font-family: 'Palanquin';
     font-weight: 700;
     line-height: 120%;
+}
+
+h3 {
+    font-size: 24px;
+    color: var(--color-font-dark);
+    font-family: 'Palanquin';
+    font-weight: 600;
+    line-height: 100%;
+}
+
+ul {
+    list-style-type: none;
 }
 /* #endregion global definitions */
 
@@ -110,7 +118,7 @@ h2 {
 .content_main {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: space-between;
     justify-content: space-between;
     position: relative;
 }
@@ -157,16 +165,78 @@ h2 {
             }
         }
     }
+
+    .category_content_wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        .food_item {
+            background-color: var(--color-bg-accent);
+            border-radius: 12px;
+            padding: 10px;
+
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+
+            img {
+                width: 100%;
+                height: 86px;
+                object-fit: cover;
+                border-radius: 12px;
+            }
+
+            .food_item_description {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+
+                p {
+                    display: -webkit-box;
+                    line-clamp: 3;
+                    -webkit-line-clamp: 3;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                }
+
+                p:hover {
+                    overflow: visible;
+                }
+            }
+
+            .food_item_pricing {
+                margin-block: 8px;
+                display: flex;
+                justify-content: space-between;
+                button {
+                    background-color: white;
+                    padding: 5px 8px;
+                    border-radius: 20px;
+                    p {
+                        font-weight: 600;
+                    }
+                }
+
+                button:hover {
+                    p {
+                        color: var(--color-bg-shell);
+                    }
+                    box-shadow: 1px 2px 2px 0px #00000033;
+                }
+            }
+        }
+    }
 }
 
 /* #region basket */
 .basket_wrapper {
     position: fixed;
     width: 94%;
-    height: var(--height-basket-mobile);
+    right: 3%;
+    height: auto;
 
     .basket {
-        height: var(--height-basket-mobile);
         max-height: var(--height-basket-mobile);
         width: 100%;
         background-color: var(--color-bg-overlay);
@@ -216,12 +286,15 @@ h2 {
             gap: 10px;
             width: 100%;
             overflow-y: auto;
+            max-height: 330px;
 
             .basket_item {
                 width: 100%;
                 border-radius: 20px;
                 background-color: var(--color-bg-accent);
                 padding: 16px;
+                max-height: 30%;
+
                 table {
                     width: 100%;
 
@@ -342,6 +415,30 @@ h2 {
                 h2 {
                     position: relative;
                     left: calc(var(--padding-category-headline) + 120px);
+                }
+            }
+        }
+
+        .category_content_wrapper {
+            max-width: 90%;
+
+            .food_item {
+                flex-direction: row;
+                justify-content: space-between;
+                height: 140px;
+
+                img {
+                    height: 100%;
+                    min-width: 30%;
+                }
+
+                .food_item_pricing {
+                    flex-direction: column;
+                    align-items: flex-end;
+
+                    button {
+                        min-width: clamp(70px, calc((100svw - 850px) * 45 / 100 + 70px), 115px);
+                    }
                 }
             }
         }

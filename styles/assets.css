@@ -68,6 +68,10 @@ button {
     background-image: url('../assets/icons/delete.svg');
 }
 
+.button_trash:hover {
+    background-image: url('../assets/icons/delete-active.svg');
+}
+
 .basket_list::-webkit-scrollbar {
     width: 26px;
 }
