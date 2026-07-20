@@ -121,6 +121,72 @@ ul {
     align-items: space-between;
     justify-content: space-between;
     position: relative;
+    gap: 30px;
+
+    .content_main_content {
+        display: flex;
+        flex-direction: column;
+        align-items: space-between;
+        justify-content: space-between;
+    }
+}
+
+.content_main_nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+
+    ul {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 5px;
+        padding-inline: 30px;
+
+        background-color: var(--color-bg-accent);
+        overflow: hidden;
+
+        border-top-left-radius: 30px;
+        border-bottom-left-radius: 30px;
+        height: 76px;
+
+        li {
+            a {
+                font-size: 28px;
+                color: var(--color-font-dark);
+                font-family: 'Palanquin';
+                font-weight: 600;
+                line-height: 100%;
+                text-align: left;
+            }
+
+            a:visited {
+                color: inherit;
+            }
+
+            a:hover,
+            a:active {
+                color: var(--color-bg-shell);
+            }
+        }
+
+        hr {
+            height: 100%;
+            border: 2px solid var(--color-bg-accent-strong);
+            margin-inline: 8px;
+        }
+    }
+
+    ul:hover {
+        overflow-x: auto;
+    }
+
+    img {
+        width: 48px;
+        height: 48px;
+        object-fit: cover;
+    }
 }
 
 .content_wrapper {
@@ -136,8 +202,7 @@ ul {
 
         width: 100dvw;
         position: absolute;
-        left: 50%;
-        transform: translateX(-50vw);
+        left: 0;
 
         .category_headline {
             width: 100%;
@@ -229,7 +294,6 @@ ul {
     }
 }
 
-/* #region basket */
 .basket_wrapper {
     position: fixed;
     width: 94%;
@@ -376,15 +440,17 @@ ul {
         }
     }
 }
-/* #endregion basket */
+
 @media screen and (min-width: 769px) {
     .scroll_none {
         overflow-y: auto;
     }
 
     .content_main {
-        flex-direction: row;
-        align-items: flex-start;
+        .content_main_content {
+            flex-direction: row;
+            align-items: flex-start;
+        }
     }
 
     .basket_wrapper {

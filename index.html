@@ -69,79 +69,91 @@
                 twist. Come hungry, leave shouting:<br />¡Ay, qué rico!
             </p>
         </section>
-        <main class="content_main">
-            <section class="content_wrapper">
-                <div class="category_headline_wrapper">
-                    <div class="category_headline">
-                        <img src="./assets/img/category-burger.svg" alt="comic picture of a hamburger" />
-                        <h2>Burger & Sandwiches</h2>
-                    </div>
-                </div>
 
-                <ul class="category_content_wrapper">
-                    <li class="food_item">
-                        <img src="./assets/img/burger-veggie.jpg" alt="veggie burger" />
-                        <div class="food_item_description">
-                            <h3>Veggie Burger with mushroom black burger</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae fugiat, aliquam
-                                consequatur quam corporis provident consectetur aperiam voluptas deleniti quasi?
-                            </p>
-                        </div>
-                        <div class="food_item_pricing">
-                            <h3>13,90€</h3>
-                            <button><p>Add to basket</p></button>
-                        </div>
-                    </li>
+        <main class="content_main">
+            <nav class="content_main_nav">
+                <ul>
+                    <li><a href="#category_X">Burger</a></li>
+                    <hr />
                 </ul>
-            </section>
-            <section id="basket_wrapper" class="basket_wrapper fade_out">
-                <div class="basket">
-                    <h2>Your Basket</h2>
-                    <ul id="basket_list" class="basket_list">
-                        <li class="basket_item">
-                            <table>
-                                <tr>
-                                    <th>1x Veggi</th>
-                                    <td><button class="button_trash d_none"></button></td>
-                                </tr>
-                                <tr>
-                                    <td class="basket_item_count">
-                                        <button class="button_trash"></button>
-                                        <p>2</p>
-                                        <button>+</button>
-                                    </td>
-                                    <th>33,80</th>
-                                </tr>
-                            </table>
+                <img src="./assets/icons/filter.svg" alt="filter icon">
+
+            </nav>
+            <section class="content_main_content">
+                <section class="content_wrapper">
+                    <div class="category_headline_wrapper">
+                        <div class="category_headline">
+                            <img src="./assets/img/category-burger.svg" alt="comic picture of a hamburger" />
+                            <h2>Burger & Sandwiches</h2>
+                        </div>
+                    </div>
+
+                    <ul id="category_X" class="category_content_wrapper">
+                        <li class="food_item">
+                            <img src="./assets/img/burger-veggie.jpg" alt="veggie burger" />
+                            <div class="food_item_description">
+                                <h3>Veggie Burger with mushroom black burger</h3>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae fugiat,
+                                    aliquam consequatur quam corporis provident consectetur aperiam voluptas deleniti
+                                    quasi?
+                                </p>
+                            </div>
+                            <div class="food_item_pricing">
+                                <h3>13,90€</h3>
+                                <button><p>Add to basket</p></button>
+                            </div>
                         </li>
                     </ul>
-                    <div class="payment_table_wrapper">
-                        <table class="payment_table">
-                            <tr>
-                                <td>Subtotal</td>
-                                <td>36.12 €</td>
-                            </tr>
-                            <tr>
-                                <td>Delivery Fee</td>
-                                <td>4.99€</td>
-                            </tr>
-                        </table>
-                        <hr />
-                        <table class="payment_total">
-                            <tr>
-                                <th>Total</th>
-                                <th>41.68€</th>
-                            </tr>
-                        </table>
-                    </div>
-                    <button class="button_buy"><p>Buy now (41,69€)</p></button> 
-                    <!-- <p>
+                </section>
+                <section id="basket_wrapper" class="basket_wrapper fade_out">
+                    <div class="basket">
+                        <h2>Your Basket</h2>
+                        <ul id="basket_list" class="basket_list">
+                            <li class="basket_item">
+                                <table>
+                                    <tr>
+                                        <th>1x Veggi</th>
+                                        <td><button class="button_trash d_none"></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="basket_item_count">
+                                            <button class="button_trash"></button>
+                                            <p>2</p>
+                                            <button>+</button>
+                                        </td>
+                                        <th>33,80</th>
+                                    </tr>
+                                </table>
+                            </li>
+                        </ul>
+                        <div class="payment_table_wrapper">
+                            <table class="payment_table">
+                                <tr>
+                                    <td>Subtotal</td>
+                                    <td>36.12 €</td>
+                                </tr>
+                                <tr>
+                                    <td>Delivery Fee</td>
+                                    <td>4.99€</td>
+                                </tr>
+                            </table>
+                            <hr />
+                            <table class="payment_total">
+                                <tr>
+                                    <th>Total</th>
+                                    <th>41.68€</th>
+                                </tr>
+                            </table>
+                        </div>
+                        <button class="button_buy"><p>Buy now (41,69€)</p></button>
+                        <!-- <p>
                         Nothing here yet.<br />
                         Go ahead and choose something delicious!
                     </p>
                     <img src="./assets/icons/basket-empty-overlay.svg" alt="empty basket"> -->
-                </div>
+                    </div>
+                </section>
             </section>
         </main>
 
