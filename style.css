@@ -286,12 +286,15 @@ ul {
             gap: 10px;
             width: 100%;
             overflow-y: auto;
+            max-height: 330px;
 
             .basket_item {
                 width: 100%;
                 border-radius: 20px;
                 background-color: var(--color-bg-accent);
                 padding: 16px;
+                max-height: 30%;
+
                 table {
                     width: 100%;
 
