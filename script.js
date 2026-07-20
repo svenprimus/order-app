@@ -32,21 +32,21 @@ function toggleLike() {
 }
 
 function renderLikedButton() {
-    const buttonRef = document.getElementById('button-star');
-    if (buttonRef.classList.contains('button-star-liked')) {
-        buttonRef.classList.add('button-star-default');
-        buttonRef.classList.remove('button-star-liked');
+    const buttonRef = document.getElementById('button_star');
+    if (buttonRef.classList.contains('button_star_liked')) {
+        buttonRef.classList.add('button_star-default');
+        buttonRef.classList.remove('button_star_liked');
     } else {
-        buttonRef.classList.add('button-star-liked');
-        buttonRef.classList.remove('button-star-default');
+        buttonRef.classList.add('button_star_liked');
+        buttonRef.classList.remove('button_star-default');
     }
 }
 
 function renderLikedCount() {
-    const buttonRef = document.getElementById('button-star');
-    const counterRef = document.getElementById('rating-counter');
+    const buttonRef = document.getElementById('button_star');
+    const counterRef = document.getElementById('rating_counter');
 
-    if (buttonRef.classList.contains('button-star-liked')) {
+    if (buttonRef.classList.contains('button_star_liked')) {
         counterRef.innerHTML = Number(counterRef.innerHTML) + 1;
     } else {
         counterRef.innerHTML = counterRef.innerHTML - 1;

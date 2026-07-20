@@ -52,13 +52,13 @@ button {
     opacity: 0.5;
 }
 
-.button-star-default {
+.button_star-default {
     background-image: url('../assets/icons/star-empty.svg');
     width: 24px;
     height: 24px;
 }
 
-.button-star-liked {
+.button_star_liked {
     background-image: url('../assets/icons/star.svg');
     width: 24px;
     height: 24px;
