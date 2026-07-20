@@ -1,6 +1,7 @@
 function init() {
     renderCategoryNav();
     renderCategorySections();
+    renderBasket();
 }
 
 function renderCategoryNav() {
@@ -24,7 +25,38 @@ function renderCategorySections() {
     }
 }
 
-// function renderBasketCount()
+function renderBasket() {
+    renderBasketItems();
+    renderBasketPricing();
+}
+
+function renderBasketItems() {
+    const basketListRef = document.getElementById('basket_list');
+    basketListRef.innerHTML = '';
+    for (let categoryIndex = 0; categoryIndex < donMenu.length; categoryIndex++) {
+        for (let itemIndex = 0; itemIndex < donMenu[categoryIndex].items.length; itemIndex++) {
+            if (donMenu[categoryIndex].items[itemIndex].amount > 0) {
+                basketListRef.innerHTML += getBasketItem(categoryIndex, itemIndex);
+                renderBasketDecreaseButton(categoryIndex, itemIndex);
+            }
+        }
+    }
+}
+
+function renderBasketDecreaseButton(categoryIndex, itemIndex) {
+    const buttonRef = document.getElementById('button_decrease_' + categoryIndex + '_' + itemIndex);
+    if (donMenu[categoryIndex].items[itemIndex].amount > 1) {
+        buttonRef.innerHTML = '';
+        buttonRef.classList.add('button_trash');
+    } else {
+        buttonRef.innerHTML = '-';
+        buttonRef.classList.remove('button_trash');
+    }
+}
+
+// function renderBasketCount() {
+
+// }
 // id="button_basket_overlay"  d_none
 // id="button_basket_counter"
 

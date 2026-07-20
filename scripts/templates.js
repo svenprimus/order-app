@@ -40,3 +40,35 @@ function getCategoryContentItem(categoryIndex, itemIndex) {
         </li>
     `;
 }
+
+function getBasketItem(categoryIndex, itemIndex) {
+    return /*html*/ `
+        <li class="basket_item">
+            <table>
+                <tr>
+                    <th>${donMenu[categoryIndex].items[itemIndex].amount + ' '}x
+                        ${' ' + donMenu[categoryIndex].items[itemIndex].name}
+                    </th>
+                    <td>
+                        <button id="button_trash_${categoryIndex}_${itemIndex}" class="button_trash d_none" 
+                        onclick="decreaseAmount(categoryIndex, itemIndex)">
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="basket_item_count">
+                        <button id="button_decrease_${categoryIndex}_${itemIndex}" class="button_trash" 
+                            onclick="decreaseAmount(categoryIndex, itemIndex)">
+                        </button>
+                        <p>${donMenu[categoryIndex].items[itemIndex].amount}</p>
+                        <button id="button_increase_${categoryIndex}_${itemIndex}" 
+                            onclick="increaseAmount(categoryIndex, itemIndex)">
+                            +
+                        </button>
+                    </td>
+                    <th>${donMenu[categoryIndex].items[itemIndex].price.toFixed(2) + ' ' + '€'}</th>
+                </tr>
+            </table>
+        </li>
+    `;
+}
