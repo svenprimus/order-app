@@ -1,13 +1,65 @@
-.fade_in {
-    animation: fadeInBasket 250ms ease-in-out forwards;
+.move_in_basket {
+    animation: moveInBasket 250ms ease-in-out forwards;
 }
 
-.fade_out {
-    animation: fadeOutBasket 250ms ease-in-out forwards;
+.move_out_basket {
+    animation: moveOutBasket 250ms ease-in-out forwards;
+}
+
+.move_in_categories {
+    animation: moveInCategories 250ms ease-in-out forwards;
+}
+
+.move_out_categories {
+    animation: moveOutCategories 250ms ease-in-out forwards;
+}
+
+@keyframes growIn {
+    from {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+    to {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+}
+
+@keyframes growOut {
+    from {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+    to {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+}
+
+@keyframes moveInCategories {
+    0% {
+        opacity: 0;
+        transform: translateX(calc(100% + var(--size-button-categories)));
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveOutCategories {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(calc(100% + var(--size-button-categories)));
+    }
 }
 
 @media screen and (max-width: 769px) {
-    @keyframes fadeInBasket {
+    @keyframes moveInBasket {
         0% {
             opacity: 0;
             bottom: calc(-1 * var(--height-basket-mobile) - var(--height-nav-mobile));
@@ -18,7 +70,7 @@
         }
     }
 
-    @keyframes fadeOutBasket {
+    @keyframes moveOutBasket {
         0% {
             opacity: 1;
             bottom: 0;
@@ -31,7 +83,7 @@
 }
 
 @media screen and (min-width: 769px) {
-    @keyframes fadeInBasket {
+    @keyframes moveInBasket {
         0% {
             opacity: 0;
             transform: translateX(100%);
@@ -42,7 +94,7 @@
         }
     }
 
-    @keyframes fadeOutBasket {
+    @keyframes moveOutBasket {
         0% {
             opacity: 1;
             transform: translateX(0);

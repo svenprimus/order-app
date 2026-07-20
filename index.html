@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="./styles/animations.css" />
 
         <link rel="stylesheet" href="./styles/shell.css" />
+        <link rel="stylesheet" href="./styles/basket.css" />
         <link rel="stylesheet" href="./style.css" />
 
         <script src="./script/db.js"></script>
@@ -72,12 +73,13 @@
 
         <main class="content_main">
             <nav class="content_main_nav">
-                <ul>
+                <ul id="content_main_nav_list" class="move_out_categories">
                     <li><a href="#category_X">Burger</a></li>
                     <hr />
                 </ul>
-                <img src="./assets/icons/filter.svg" alt="filter icon">
-
+                <button class="button_categories" onclick="toggleCategoryNavView()">
+                    <img src="./assets/icons/filter.svg" alt="filter icon" />
+                </button>
             </nav>
             <section class="content_main_content">
                 <section class="content_wrapper">
@@ -106,7 +108,7 @@
                         </li>
                     </ul>
                 </section>
-                <section id="basket_wrapper" class="basket_wrapper fade_out">
+                <section id="basket_wrapper" class="basket_wrapper move_out_basket">
                     <div class="basket">
                         <h2>Your Basket</h2>
                         <ul id="basket_list" class="basket_list">

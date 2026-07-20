@@ -11,6 +11,13 @@ button {
     background-position: 50%;
 }
 
+.button_menu:hover,
+.button_menu:active,
+.button_categories:hover,
+.button_categories:active {
+    opacity: 0.5;
+}
+
 .button_home {
     background-image: url('../assets/icons/home.svg');
 }
@@ -45,11 +52,6 @@ button {
 .button_basket:hover,
 .button_basket:active {
     background-image: url('../assets/icons/basket-active-nav.svg');
-}
-
-.button_menu:hover,
-.button_menu:active {
-    opacity: 0.5;
 }
 
 .button_star-default {
@@ -94,4 +96,14 @@ button {
 
 .basket_wrapper::selection {
     background-color: var(--color-bg-accent);
+}
+
+.button_categories {
+    height: var(--height-nav-category);
+
+    img {
+        width: var(--size-button-categories);
+        height: var(--size-button-categories);
+        object-fit: cover;
+    }
 }
