@@ -48,25 +48,25 @@ function getBasketItem(categoryIndex, itemIndex) {
         <li class="basket_item">
             <table>
                 <tr>
-                    <th>${donMenu[categoryIndex].items[itemIndex].amount + ' '}x
+                    <th>
                         ${' ' + donMenu[categoryIndex].items[itemIndex].name}
                     </th>
                     <td>
                         <button id="button_trash_${categoryIndex}_${itemIndex}" 
-                        class="button_trash_img d_none" 
-                        onclick="decreaseAmount(${categoryIndex}, ${itemIndex})">
+                        class="button_change_amount button_trash_img d_none" 
+                        onclick="deleteItem(${categoryIndex}, ${itemIndex})">
                         </button>
                     </td>
                 </tr>
                 <tr>
                     <td class="basket_item_count">
                         <button id="button_decrease_${categoryIndex}_${itemIndex}" 
-                            class="button_pricing button_trash_img" 
+                            class="button_change_amount button_trash_img" 
                             onclick="decreaseAmount(${categoryIndex}, ${itemIndex})">
                         </button>
                         <p>${donMenu[categoryIndex].items[itemIndex].amount}</p>
                         <button id="button_increase_${categoryIndex}_${itemIndex}" 
-                            class="button_pricing"
+                            class="button_change_amount"
                             onclick="increaseAmount(${categoryIndex}, ${itemIndex})">
                             +
                         </button>

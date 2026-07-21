@@ -55,7 +55,6 @@ function renderBasketPricing() {
     document.getElementById('payment_table_subtotal').innerHTML = subtotal.toFixed(2) + ' €';
     document.getElementById('payment_table_delivery').innerHTML = deliveryFee.toFixed(2) + ' €';
     document.getElementById('payment_table_total').innerHTML = (subtotal + deliveryFee).toFixed(2) + ' €';
-    document.getElementById('button_buy').innerHTML = ' (' + (subtotal + deliveryFee).toFixed(2) + ' €)';
 
     if (subtotal > 0) {
         showBasket();
@@ -66,12 +65,15 @@ function renderBasketPricing() {
 
 function renderBasketDecreaseButton(categoryIndex, itemIndex) {
     const buttonRef = document.getElementById('button_decrease_' + categoryIndex + '_' + itemIndex);
+    const trashRef = document.getElementById('button_trash_' + categoryIndex + '_' + itemIndex);
     if (donMenu[categoryIndex].items[itemIndex].amount > 1) {
         buttonRef.innerHTML = '-';
         buttonRef.classList.remove('button_trash_img');
+        trashRef.classList.remove('d_none');
     } else {
         buttonRef.innerHTML = '';
         buttonRef.classList.add('button_trash_img');
+        trashRef.classList.add('d_none');
     }
 }
 
@@ -85,6 +87,12 @@ function decreaseAmount(categoryIndex, itemIndex) {
 
 function increaseAmount(categoryIndex, itemIndex) {
     donMenu[categoryIndex].items[itemIndex].amount++;
+    renderBasket();
+    renderAddButton(categoryIndex, itemIndex);
+}
+
+function deleteItem(categoryIndex, itemIndex) {
+    donMenu[categoryIndex].items[itemIndex].amount = 0;
     renderBasket();
     renderAddButton(categoryIndex, itemIndex);
 }

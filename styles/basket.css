@@ -98,12 +98,12 @@
                     }
                 }
 
-                .button_pricing {
+                .button_change_amount {
                     width: 24px;
                     height: 24px;
                 }
 
-                .button_pricing:hover {
+                .button_change_amount:hover {
                     color: var(--color-bg-shell);
                 }
             }
@@ -141,15 +141,8 @@
             justify-content: space-between;
             gap: 5px;
 
-            p:first-child {
-                width: 95px;
-            }
-
-            p:last-child {
-                width: 105px;
-            }
-
             p {
+                width: 95px;
                 font-size: 24px;
                 font-weight: 700;
                 color: var(--color-font-bright);
