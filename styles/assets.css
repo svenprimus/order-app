@@ -54,7 +54,7 @@ button {
     background-image: url('../assets/icons/basket-active-nav.svg');
 }
 
-.button_star-default {
+.button_star_default {
     background-image: url('../assets/icons/star-empty.svg');
     width: 24px;
     height: 24px;
@@ -66,11 +66,12 @@ button {
     height: 24px;
 }
 
-.button_trash {
+.button_trash_img {
     background-image: url('../assets/icons/delete.svg');
+    align-self: flex-end;
 }
 
-.button_trash:hover {
+.button_trash_img:hover {
     background-image: url('../assets/icons/delete-active.svg');
 }
 
@@ -95,7 +96,7 @@ button {
 }
 
 .basket_wrapper::selection {
-    background-color: var(--color-bg-accent);
+    background-color: var(--color-bg-accent-strong);
 }
 
 .button_categories {
@@ -106,4 +107,8 @@ button {
         height: var(--size-button-categories);
         object-fit: cover;
     }
+}
+
+.button_add_highlight {
+    color: var(--color-bg-accent);
 }

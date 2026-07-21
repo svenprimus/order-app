@@ -199,7 +199,6 @@ ul {
 
     .category_headline_wrapper {
         height: var(--height-category);
-        /* padding-top: calc(var(--height-category) - var(--height-category_headline)); */
         padding-top: 40px;
 
         width: 100dvw;
@@ -270,6 +269,7 @@ ul {
                 }
 
                 p:hover {
+                    z-index: 2;
                     overflow: visible;
                 }
             }
@@ -278,10 +278,12 @@ ul {
                 margin-block: 8px;
                 display: flex;
                 justify-content: space-between;
+
                 button {
                     background-color: white;
                     padding: 5px 8px;
                     border-radius: 20px;
+
                     p {
                         font-weight: 600;
                     }
@@ -353,6 +355,11 @@ ul {
 
                     button {
                         min-width: clamp(70px, calc((100svw - 850px) * 45 / 100 + 70px), 115px);
+                    }
+
+                    h3 {
+                        text-align: right;
+                        min-width: 100px;
                     }
                 }
             }

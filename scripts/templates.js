@@ -35,7 +35,9 @@ function getCategoryContentItem(categoryIndex, itemIndex) {
             </div>
             <div class="food_item_pricing">
                 <h3>${donMenu[categoryIndex].items[itemIndex].price.toFixed(2).replace('.', ',')} €</h3>
-                <button onclick="addToBasket(${categoryIndex}, ${itemIndex})"><p>Add to basket</p></button>
+                <button onclick="increaseAmount(${categoryIndex}, ${itemIndex})">
+                    <p id="added_${categoryIndex}_${itemIndex}">Add to basket</p>
+                </button>
             </div>
         </li>
     `;
@@ -50,19 +52,22 @@ function getBasketItem(categoryIndex, itemIndex) {
                         ${' ' + donMenu[categoryIndex].items[itemIndex].name}
                     </th>
                     <td>
-                        <button id="button_trash_${categoryIndex}_${itemIndex}" class="button_trash d_none" 
-                        onclick="decreaseAmount(categoryIndex, itemIndex)">
+                        <button id="button_trash_${categoryIndex}_${itemIndex}" 
+                        class="button_trash_img d_none" 
+                        onclick="decreaseAmount(${categoryIndex}, ${itemIndex})">
                         </button>
                     </td>
                 </tr>
                 <tr>
                     <td class="basket_item_count">
-                        <button id="button_decrease_${categoryIndex}_${itemIndex}" class="button_trash" 
-                            onclick="decreaseAmount(categoryIndex, itemIndex)">
+                        <button id="button_decrease_${categoryIndex}_${itemIndex}" 
+                            class="button_pricing button_trash_img" 
+                            onclick="decreaseAmount(${categoryIndex}, ${itemIndex})">
                         </button>
                         <p>${donMenu[categoryIndex].items[itemIndex].amount}</p>
                         <button id="button_increase_${categoryIndex}_${itemIndex}" 
-                            onclick="increaseAmount(categoryIndex, itemIndex)">
+                            class="button_pricing"
+                            onclick="increaseAmount(${categoryIndex}, ${itemIndex})">
                             +
                         </button>
                     </td>

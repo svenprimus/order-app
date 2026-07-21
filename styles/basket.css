@@ -93,14 +93,18 @@
 
                     .basket_item_count {
                         display: flex;
-                        align-items: flex-end;
+                        align-items: center;
                         gap: 4px;
                     }
                 }
 
-                .button_trash {
+                .button_pricing {
                     width: 24px;
                     height: 24px;
+                }
+
+                .button_pricing:hover {
+                    color: var(--color-bg-shell);
                 }
             }
         }
@@ -133,6 +137,17 @@
             height: 50px;
             border-radius: 60px;
             background-color: var(--color-bg-shell);
+            display: flex;
+            justify-content: space-between;
+            gap: 5px;
+
+            p:first-child {
+                width: 95px;
+            }
+
+            p:last-child {
+                width: 105px;
+            }
 
             p {
                 font-size: 24px;

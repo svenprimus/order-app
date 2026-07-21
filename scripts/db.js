@@ -1,3 +1,4 @@
+const deliveryFee = 4.99;
 const pathToImages = './assets/img/menu_items/';
 let donMenu = [
     {
@@ -23,7 +24,7 @@ let donMenu = [
                 alt: 'big meaty bacon guacamole burger',
             },
             {
-                name: 'Beef Hot Salsa FUEGO Hamburgesa',
+                name: 'Beef Hot Salsa FUEGO Burger',
                 blurb: 'Beef, HOT Salsa, Cheese, Tomatoes, Lettuce, Onion',
                 price: 14.9,
                 amount: 0,
@@ -34,7 +35,7 @@ let donMenu = [
                 name: 'El Pollo Feliz Burger',
                 blurb: 'Happy Chicken, Cheese, Tomatoes, Lettuce, Onion, Bell pepper',
                 price: 15.9,
-                amount: 0,
+                amount: 2,
                 img: 'burger-chicken.jpg',
                 alt: 'chicken burger with much salad',
             },
@@ -50,7 +51,7 @@ let donMenu = [
                 name: 'Pizza Señora Margherita',
                 blurb: 'Tomato slices, Mozzarella and Chorizo',
                 price: 11.9,
-                amount: 0,
+                amount: 1,
                 img: 'pizza-margherita.jpg',
                 alt: 'margherita pizza with basil topping',
             },

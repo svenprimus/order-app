@@ -42,7 +42,7 @@
                     </li>
                     <li class="button_basket_wrapper">
                         <button class="button_basket" onclick="toggleBasket()"></button>
-                        <div id="button_basket_overlay" class="button_basket_overlay d_none">
+                        <div id="button_basket_overlay" class="button_basket_overlay d_none" onclick="toggleBasket()">
                             <p id="button_basket_counter"></p>
                         </div>
                     </li>
@@ -88,22 +88,22 @@
                             <table class="payment_table">
                                 <tr>
                                     <td>Subtotal</td>
-                                    <td>36.12 €</td>
+                                    <td id="payment_table_subtotal"></td>
                                 </tr>
                                 <tr>
                                     <td>Delivery Fee</td>
-                                    <td>4.99€</td>
+                                    <td id="payment_table_delivery"></td>
                                 </tr>
                             </table>
                             <hr />
                             <table class="payment_total">
                                 <tr>
                                     <th>Total</th>
-                                    <th>41.68€</th>
+                                    <th id="payment_table_total"></th>
                                 </tr>
                             </table>
                         </div>
-                        <button class="button_buy"><p>Buy now (41,69€)</p></button>
+                        <button class="button_buy" onlick="completeOrder()"><p>Buy now</p><p id="button_buy"></p></button>
                         <!-- <p>
                         Nothing here yet.<br />
                         Go ahead and choose something delicious!
