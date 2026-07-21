@@ -33,6 +33,4 @@
     --padding-category-icon: max(calc(50% - (720px - var(--padding-content-inline) - 48px)), var(--padding-content-inline));
     --padding-category-text: max(calc(50% - (720px - var(--padding-content-inline) - 168px)), var(--padding-category-left));
     --padding-category-top: 40px;
-    /* TODO: */
-    /* - font size clamping */
 }
