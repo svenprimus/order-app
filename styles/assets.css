@@ -112,3 +112,18 @@ button {
 .button_add_highlight {
     color: var(--color-bg-accent);
 }
+
+.button_close_dialog {
+    background-image: url('../assets/icons/close.svg');
+    background-size: cover;
+    height: 16px;
+    width: 16px;
+    margin-bottom: 26px;
+    align-self: flex-end;
+}
+
+.button_close_dialog:hover,
+.button_close_dialog:active,
+.button_close_dialog:focus {
+    background-image: url('../assets/icons/close-active.svg');
+}

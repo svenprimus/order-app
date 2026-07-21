@@ -314,6 +314,55 @@ ul {
     display: initial;
 }
 
+dialog {
+    padding: 32px;
+    width: calc(100svw - 32px);
+    height: 270px;
+
+    margin: auto;
+    border: 0;
+    z-index: 2;
+    background-color: var(--color-bg-overlay);
+    border-radius: 30px;
+
+    .dialog_content_wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+
+        img {
+            width: 80px;
+            margin-bottom: 16px;
+            animation: moveInOutCar 1.5s infinite ease-in-out forwards;
+        }
+
+        h1,
+        h2 {
+            color: var(--color-bg-accent);
+            line-height: 120%;
+            font-family: 'Palanquin';
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: 36px;
+        }
+
+        h2 {
+            font-size: 24px;
+        }
+    }
+}
+
+dialog.opened::backdrop {
+    background-color: #45444466;
+    opacity: 0.75;
+    transition: all 1s ease-in-out;
+}
+
 @media screen and (min-width: 769px) {
     .on_desktop {
         display: initial;
@@ -391,6 +440,7 @@ ul {
     .hero {
         padding-top: 0;
         padding-inline: 0;
+
         .hero_img_wrapper {
             .hero_img {
                 width: 100%;
@@ -413,6 +463,10 @@ ul {
         > p {
             max-width: 768px;
         }
+    }
+
+    dialog {
+        width: 415px;
     }
 }
 

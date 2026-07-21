@@ -69,18 +69,25 @@ function getBasketFilledWrapper() {
                 </tr>
             </table>
         </div>
-        <button class="button_buy" onlick="completeOrder()"><p>Buy now</p></button>
+        <button
+            class="button_buy"
+            aria-haspopup="dialog"
+            aria-controls="confirmationDialog"
+            onclick="openDialog()"
+        >
+            <p>Buy now</p>
+        </button>
     `;
 }
 
 function getBasketEmptyWrapper() {
-    return /*html*/`
+    return /*html*/ `
         <p>
             Nothing here yet.<br />
             Go ahead and choose something delicious!
         </p>
         <img src="./assets/icons/basket-empty-overlay.svg" alt="empty basket" />
-    `
+    `;
 }
 
 function getBasketItem(categoryIndex, itemIndex) {
@@ -116,4 +123,25 @@ function getBasketItem(categoryIndex, itemIndex) {
             </table>
         </li>
     `;
+}
+
+function getDialogContent() {
+    return /*html*/`
+        <div
+            class="dialog_content_wrapper"
+            aria-description="dialog window to confirm order"
+            onclick="stopDialogPropagation(event)"
+        >
+            <button
+                id="button_close_dialog"
+                class="button_close_dialog"
+                aria-controls="confirmationDialog"
+                aria-label="close dialog"
+                onclick="closeDialog()"
+            ></button>
+            <img src="./assets/img/confirmed-order.png" alt="burger car on the way" />
+            <h1>Order Confirmed!</h1>
+            <h2>Your food is on the way!</h2>
+        </div>        
+    `
 }
