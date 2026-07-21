@@ -7,6 +7,8 @@ function init() {
     toggleBasketViewBySubtotal();
 }
 
+// #region render
+
 function renderCategoryNav() {
     const navRef = document.getElementById('content_main_nav_list');
     navRef.innerHTML = '';
@@ -26,11 +28,11 @@ function renderCategorySections() {
             categoryRef.innerHTML += getCategoryContentItem(categoryIndex, itemIndex);
             renderAddButton(categoryIndex, itemIndex);
         }
-        setCategoryHeaderAside(categoryIndex);
+        renderCategoryHeaderAside(categoryIndex);
     }
 }
 
-function setCategoryHeaderAside(categoryIndex) {
+function renderCategoryHeaderAside(categoryIndex) {
     const categoryRef = document.getElementById('category_headline_' + categoryIndex);
     categoryRef.innerHTML += donMenu[categoryIndex].aside ? ' <span>(' + donMenu[categoryIndex].aside + ')</span>' : '';
 }
@@ -52,10 +54,6 @@ function renderBasketItems() {
         }
     }
     renderBasketCount();
-}
-
-function getHasAmount() {
-    return donMenu.flatMap((category) => category.items).filter((item) => item.amount > 0);
 }
 
 function renderBasketPricing() {
@@ -81,41 +79,6 @@ function renderBasketDecreaseButton(categoryIndex, itemIndex) {
         buttonRef.classList.add('button_trash_img');
         trashRef.classList.add('d_none');
     }
-}
-
-function decreaseAmount(categoryIndex, itemIndex) {
-    if (donMenu[categoryIndex].items[itemIndex].amount > 0) {
-        donMenu[categoryIndex].items[itemIndex].amount--;
-    }
-    renderBasket();
-    renderAddButton(categoryIndex, itemIndex);
-    toggleBasketViewBySubtotal();
-}
-
-function increaseAmount(categoryIndex, itemIndex) {
-    donMenu[categoryIndex].items[itemIndex].amount++;
-    renderBasket();
-    renderAddButton(categoryIndex, itemIndex);
-}
-
-function increaseAmountFromDesktop(categoryIndex, itemIndex) {
-    donMenu[categoryIndex].items[itemIndex].amount++;
-    renderBasket();
-    renderAddButton(categoryIndex, itemIndex);
-    toggleBasketViewBySubtotal();
-}
-
-function deleteItem(categoryIndex, itemIndex) {
-    donMenu[categoryIndex].items[itemIndex].amount = 0;
-    renderBasket();
-    renderAddButton(categoryIndex, itemIndex);
-    toggleBasketViewBySubtotal();
-}
-
-function completeOrder() {
-    // TODO: show modal
-    // TODO: reset amount and addbuttons
-    // TODO: hide basket
 }
 
 function renderAddButton(categoryIndex, itemIndex) {
@@ -171,6 +134,45 @@ function renderLikedCount() {
     }
 }
 
+// #endregion render
+
+// #region events
+
+function decreaseAmount(categoryIndex, itemIndex) {
+    if (donMenu[categoryIndex].items[itemIndex].amount > 0) {
+        donMenu[categoryIndex].items[itemIndex].amount--;
+    }
+    renderBasket();
+    renderAddButton(categoryIndex, itemIndex);
+    toggleBasketViewBySubtotal();
+}
+
+function increaseAmount(categoryIndex, itemIndex) {
+    donMenu[categoryIndex].items[itemIndex].amount++;
+    renderBasket();
+    renderAddButton(categoryIndex, itemIndex);
+}
+
+function increaseAmountFromDesktop(categoryIndex, itemIndex) {
+    donMenu[categoryIndex].items[itemIndex].amount++;
+    renderBasket();
+    renderAddButton(categoryIndex, itemIndex);
+    toggleBasketViewBySubtotal();
+}
+
+function deleteItem(categoryIndex, itemIndex) {
+    donMenu[categoryIndex].items[itemIndex].amount = 0;
+    renderBasket();
+    renderAddButton(categoryIndex, itemIndex);
+    toggleBasketViewBySubtotal();
+}
+
+function completeOrder() {
+    // TODO: show modal
+    // TODO: reset amount and addbuttons
+    // TODO: hide basket
+}
+
 function toggleLike() {
     renderLikedButton();
     renderLikedCount();
@@ -200,6 +202,19 @@ function toggleBasketViewBySubtotal() {
     subtotal > 0 ? showBasket() : hideBasket();
 }
 
+function toggleCategoryNavView() {
+    const navRef = document.getElementById('content_main_nav_list');
+    if (navRef.classList.contains('move_out_categories')) {
+        navRef.classList.add('move_in_categories');
+        navRef.classList.remove('move_out_categories');
+    } else {
+        navRef.classList.add('move_out_categories');
+        navRef.classList.remove('move_in_categories');
+    }
+}
+
+// #endregion events
+
 function hideBasket() {
     const basketRef = document.getElementById('basket_wrapper');
     basketRef.classList.remove('move_in_basket');
@@ -214,13 +229,6 @@ function showBasket() {
     document.getElementById('body').classList.add('scroll_none');
 }
 
-function toggleCategoryNavView() {
-    const navRef = document.getElementById('content_main_nav_list');
-    if (navRef.classList.contains('move_out_categories')) {
-        navRef.classList.add('move_in_categories');
-        navRef.classList.remove('move_out_categories');
-    } else {
-        navRef.classList.add('move_out_categories');
-        navRef.classList.remove('move_in_categories');
-    }
+function getHasAmount() {
+    return donMenu.flatMap((category) => category.items).filter((item) => item.amount > 0);
 }
