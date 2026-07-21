@@ -48,12 +48,15 @@ function renderBasketItems() {
     renderBasketCount();
 }
 
+function getHasAmount() {
+    return donMenu.flatMap((category) => category.items).filter((item) => item.amount > 0);
+}
+
 function renderBasketPricing() {
     subtotal = 0;
-    for (let categoryIndex = 0; categoryIndex < donMenu.length; categoryIndex++) {
-        for (let itemIndex = 0; itemIndex < donMenu[categoryIndex].items.length; itemIndex++) {
-            subtotal += donMenu[categoryIndex].items[itemIndex].amount * donMenu[categoryIndex].items[itemIndex].price;
-        }
+    const hasAmount = getHasAmount();
+    for (let index = 0; index < hasAmount.length; index++) {
+        subtotal += hasAmount[index].amount * hasAmount[index].price;
     }
     document.getElementById('payment_table_subtotal').innerHTML = subtotal.toFixed(2) + ' €';
     document.getElementById('payment_table_delivery').innerHTML = deliveryFee.toFixed(2) + ' €';
@@ -127,13 +130,11 @@ function renderAddButton(categoryIndex, itemIndex) {
 
 function renderBasketCount() {
     let totalAmount = 0;
-    for (let categoryIndex = 0; categoryIndex < donMenu.length; categoryIndex++) {
-        for (let itemIndex = 0; itemIndex < donMenu[categoryIndex].items.length; itemIndex++) {
-            if (donMenu[categoryIndex].items[itemIndex].amount > 0) {
-                totalAmount += donMenu[categoryIndex].items[itemIndex].amount;
-            }
-        }
+    const hasAmount = getHasAmount();
+    for (let index = 0; index < hasAmount.length; index++) {
+        totalAmount += hasAmount[index].amount;
     }
+
     if (totalAmount > 0) {
         document.getElementById('button_basket_overlay').classList.remove('d_none');
         document.getElementById('button_basket_counter').innerHTML = totalAmount;
