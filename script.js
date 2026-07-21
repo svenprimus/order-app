@@ -254,8 +254,6 @@ function stopDialogPropagation(event) {
     event.stopPropagation();
 }
 
-// #endregion events
-
 function hideBasket() {
     const basketRef = document.getElementById('basket_wrapper');
     basketRef.classList.remove('move_in_basket');
@@ -269,6 +267,8 @@ function showBasket() {
     basketRef.classList.add('move_in_basket');
     document.getElementById('body').classList.add('scroll_none');
 }
+
+// #endregion events
 
 function getHasAmount() {
     return donMenu.flatMap((category) => category.items).filter((item) => item.amount > 0);
