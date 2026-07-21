@@ -10,7 +10,7 @@ function getCategoryHeader(categoryIndex) {
         <div id="category_${categoryIndex}" class="category_headline_wrapper">
             <div class="category_headline">
                 <img src=${pathToImages + donMenu[categoryIndex].img} alt=${donMenu[categoryIndex].alt} />
-                <h2>${donMenu[categoryIndex].category}</h2>
+                <h2 id="category_headline_${categoryIndex}">${donMenu[categoryIndex].category}</h2>
             </div>
         </div>      
     `;

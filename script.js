@@ -26,7 +26,13 @@ function renderCategorySections() {
             categoryRef.innerHTML += getCategoryContentItem(categoryIndex, itemIndex);
             renderAddButton(categoryIndex, itemIndex);
         }
+        setCategoryHeaderAside(categoryIndex);
     }
+}
+
+function setCategoryHeaderAside(categoryIndex) {
+    const categoryRef = document.getElementById('category_headline_' + categoryIndex);
+    categoryRef.innerHTML += donMenu[categoryIndex].aside ? ' <span>(' + donMenu[categoryIndex].aside + ')</span>' : '';
 }
 
 function renderBasket() {

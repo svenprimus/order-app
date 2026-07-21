@@ -227,6 +227,9 @@ ul {
 
             h2 {
                 color: var(--color-font-bright);
+                span {
+                    font-weight: 400;
+                }
             }
         }
     }
@@ -343,12 +346,12 @@ ul {
                     width: var(--size-category-icon-desktop);
                     height: var(--size-category-icon-desktop);
                     bottom: 0;
-                    left: var(--padding-category-headline);
+                    left: var(--padding-category-icon);
                 }
 
                 h2 {
                     position: relative;
-                    left: calc(var(--padding-category-headline) + 120px);
+                    left: var(--padding-category-text);
                 }
             }
         }
@@ -405,6 +408,10 @@ ul {
             .rating_stats {
                 order: 1;
             }
+        }
+
+        > p {
+            max-width: 768px;
         }
     }
 }

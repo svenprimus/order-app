@@ -3,7 +3,7 @@ const pathToImages = './assets/img/menu_items/';
 let donMenu = [
     {
         category: 'Burger',
-        aside: '',
+        aside: '200 g',
         img: 'category-burger.svg',
         alt: 'comic picture of a hamburger',
         items: [
