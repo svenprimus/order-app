@@ -4,7 +4,7 @@ function init() {
     renderCategoryNav();
     renderCategorySections();
     renderBasket();
-    toggleBasketBySubtotal();
+    toggleBasketViewBySubtotal();
 }
 
 function renderCategoryNav() {
@@ -89,7 +89,7 @@ function decreaseAmount(categoryIndex, itemIndex) {
     }
     renderBasket();
     renderAddButton(categoryIndex, itemIndex);
-    toggleBasketBySubtotal();
+    toggleBasketViewBySubtotal();
 }
 
 function increaseAmount(categoryIndex, itemIndex) {
@@ -102,14 +102,14 @@ function increaseAmountFromDesktop(categoryIndex, itemIndex) {
     donMenu[categoryIndex].items[itemIndex].amount++;
     renderBasket();
     renderAddButton(categoryIndex, itemIndex);
-    toggleBasketBySubtotal();
+    toggleBasketViewBySubtotal();
 }
 
 function deleteItem(categoryIndex, itemIndex) {
     donMenu[categoryIndex].items[itemIndex].amount = 0;
     renderBasket();
     renderAddButton(categoryIndex, itemIndex);
-    toggleBasketBySubtotal();
+    toggleBasketViewBySubtotal();
 }
 
 function completeOrder() {
@@ -176,7 +176,7 @@ function toggleLike() {
     renderLikedCount();
 }
 
-function toggleMenu() {
+function toggleMenuView() {
     const navRef = document.getElementById('nav_bar');
     if (navRef.classList.contains('nav_desk_invisible')) {
         navRef.classList.remove('nav_desk_invisible');
@@ -187,7 +187,7 @@ function toggleMenu() {
     }
 }
 
-function toggleBasket() {
+function toggleBasketView() {
     const basketRef = document.getElementById('basket_wrapper');
     if (basketRef.classList.contains('move_in_basket')) {
         hideBasket();
@@ -196,7 +196,7 @@ function toggleBasket() {
     }
 }
 
-function toggleBasketBySubtotal() {
+function toggleBasketViewBySubtotal() {
     subtotal > 0 ? showBasket() : hideBasket();
 }
 
