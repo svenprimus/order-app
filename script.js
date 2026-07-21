@@ -1,10 +1,10 @@
-let subtotal = 0;
+let totalAmount = 0;
 
 function init() {
     renderCategoryNav();
     renderCategorySections();
     renderBasket();
-    toggleBasketViewBySubtotal();
+    toggleBasketViewByTotalAmount();
 }
 
 // #region render
@@ -38,8 +38,23 @@ function renderCategoryHeaderAside(categoryIndex) {
 }
 
 function renderBasket() {
+    updateGlobalAmount();
+    if (totalAmount > 0) {
+        renderBasketFilled();
+    } else {
+        renderBasketEmpty();
+    }
+}
+
+function renderBasketFilled() {
+    document.getElementById('basket_wrapper_content').innerHTML = getBasketFilledWrapper();
     renderBasketItems();
     renderBasketPricing();
+}
+
+function renderBasketEmpty() {
+    document.getElementById('basket_wrapper_content').innerHTML = getBasketEmptyWrapper();
+    renderBasketCount();
 }
 
 function renderBasketItems() {
@@ -57,14 +72,16 @@ function renderBasketItems() {
 }
 
 function renderBasketPricing() {
-    subtotal = 0;
-    const hasAmount = getHasAmount();
-    for (let index = 0; index < hasAmount.length; index++) {
-        subtotal += hasAmount[index].amount * hasAmount[index].price;
+    if (totalAmount > 0) {
+        let subtotal = 0;
+        const hasAmount = getHasAmount();
+        for (let index = 0; index < hasAmount.length; index++) {
+            subtotal += hasAmount[index].amount * hasAmount[index].price;
+        }
+        document.getElementById('payment_table_subtotal').innerHTML = subtotal.toFixed(2) + ' €';
+        document.getElementById('payment_table_delivery').innerHTML = deliveryFee.toFixed(2) + ' €';
+        document.getElementById('payment_table_total').innerHTML = (subtotal + deliveryFee).toFixed(2) + ' €';
     }
-    document.getElementById('payment_table_subtotal').innerHTML = subtotal.toFixed(2) + ' €';
-    document.getElementById('payment_table_delivery').innerHTML = deliveryFee.toFixed(2) + ' €';
-    document.getElementById('payment_table_total').innerHTML = (subtotal + deliveryFee).toFixed(2) + ' €';
 }
 
 function renderBasketDecreaseButton(categoryIndex, itemIndex) {
@@ -98,12 +115,6 @@ function renderAddButton(categoryIndex, itemIndex) {
 }
 
 function renderBasketCount() {
-    let totalAmount = 0;
-    const hasAmount = getHasAmount();
-    for (let index = 0; index < hasAmount.length; index++) {
-        totalAmount += hasAmount[index].amount;
-    }
-
     if (totalAmount > 0) {
         document.getElementById('button_basket_overlay').classList.remove('d_none');
         document.getElementById('button_basket_counter').innerHTML = totalAmount;
@@ -144,7 +155,7 @@ function decreaseAmount(categoryIndex, itemIndex) {
     }
     renderBasket();
     renderAddButton(categoryIndex, itemIndex);
-    toggleBasketViewBySubtotal();
+    toggleBasketViewByTotalAmount();
 }
 
 function increaseAmount(categoryIndex, itemIndex) {
@@ -157,14 +168,14 @@ function increaseAmountFromDesktop(categoryIndex, itemIndex) {
     donMenu[categoryIndex].items[itemIndex].amount++;
     renderBasket();
     renderAddButton(categoryIndex, itemIndex);
-    toggleBasketViewBySubtotal();
+    toggleBasketViewByTotalAmount();
 }
 
 function deleteItem(categoryIndex, itemIndex) {
     donMenu[categoryIndex].items[itemIndex].amount = 0;
     renderBasket();
     renderAddButton(categoryIndex, itemIndex);
-    toggleBasketViewBySubtotal();
+    toggleBasketViewByTotalAmount();
 }
 
 function completeOrder() {
@@ -198,8 +209,8 @@ function toggleBasketView() {
     }
 }
 
-function toggleBasketViewBySubtotal() {
-    subtotal > 0 ? showBasket() : hideBasket();
+function toggleBasketViewByTotalAmount() {
+    totalAmount > 0 ? showBasket() : hideBasket();
 }
 
 function toggleCategoryNavView() {
@@ -231,4 +242,12 @@ function showBasket() {
 
 function getHasAmount() {
     return donMenu.flatMap((category) => category.items).filter((item) => item.amount > 0);
+}
+
+function updateGlobalAmount() {
+    totalAmount = 0;
+    const hasAmount = getHasAmount();
+    for (let index = 0; index < hasAmount.length; index++) {
+        totalAmount += hasAmount[index].amount;
+    }
 }

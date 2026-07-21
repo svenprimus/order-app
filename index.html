@@ -42,7 +42,11 @@
                     </li>
                     <li class="button_basket_wrapper">
                         <button class="button_basket" onclick="toggleBasketView()"></button>
-                        <div id="button_basket_overlay" class="button_basket_overlay d_none" onclick="toggleBasketView()">
+                        <div
+                            id="button_basket_overlay"
+                            class="button_basket_overlay d_none"
+                            onclick="toggleBasketView()"
+                        >
                             <p id="button_basket_counter"></p>
                         </div>
                     </li>
@@ -81,35 +85,7 @@
             <section class="content_main_content">
                 <section id="content_wrapper" class="content_wrapper"></section>
                 <section id="basket_wrapper" class="basket_wrapper move_out_basket">
-                    <div class="basket">
-                        <h2>Your Basket</h2>
-                        <ul id="basket_list" class="basket_list"></ul>
-                        <div class="payment_table_wrapper">
-                            <table class="payment_table">
-                                <tr>
-                                    <td>Subtotal</td>
-                                    <td id="payment_table_subtotal"></td>
-                                </tr>
-                                <tr>
-                                    <td>Delivery Fee</td>
-                                    <td id="payment_table_delivery"></td>
-                                </tr>
-                            </table>
-                            <hr />
-                            <table class="payment_total">
-                                <tr>
-                                    <th>Total</th>
-                                    <th id="payment_table_total"></th>
-                                </tr>
-                            </table>
-                        </div>
-                        <button class="button_buy" onlick="completeOrder()"><p>Buy now</p></button>
-                        <!-- <p>
-                        Nothing here yet.<br />
-                        Go ahead and choose something delicious!
-                    </p>
-                    <img src="./assets/icons/basket-empty-overlay.svg" alt="empty basket"> -->
-                    </div>
+                    <div id="basket_wrapper_content" class="basket"></div>
                 </section>
             </section>
         </main>

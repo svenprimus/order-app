@@ -46,6 +46,43 @@ function getCategoryContentItem(categoryIndex, itemIndex) {
     `;
 }
 
+function getBasketFilledWrapper() {
+    return /*html*/ `
+        <h2>Your Basket</h2>
+        <ul id="basket_list" class="basket_list"></ul>
+        <div class="payment_table_wrapper">
+            <table class="payment_table">
+                <tr>
+                    <td>Subtotal</td>
+                    <td id="payment_table_subtotal"></td>
+                </tr>
+                <tr>
+                    <td>Delivery Fee</td>
+                    <td id="payment_table_delivery"></td>
+                </tr>
+            </table>
+            <hr />
+            <table class="payment_total">
+                <tr>
+                    <th>Total</th>
+                    <th id="payment_table_total"></th>
+                </tr>
+            </table>
+        </div>
+        <button class="button_buy" onlick="completeOrder()"><p>Buy now</p></button>
+    `;
+}
+
+function getBasketEmptyWrapper() {
+    return /*html*/`
+        <p>
+            Nothing here yet.<br />
+            Go ahead and choose something delicious!
+        </p>
+        <img src="./assets/icons/basket-empty-overlay.svg" alt="empty basket" />
+    `
+}
+
 function getBasketItem(categoryIndex, itemIndex) {
     return /*html*/ `
         <li class="basket_item">

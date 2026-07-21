@@ -198,7 +198,7 @@ ul {
 
     .category_headline_wrapper {
         height: var(--height-category);
-        padding-top: 40px;
+        padding-top: var(--padding-category-top);
 
         width: 100dvw;
         position: absolute;

@@ -160,7 +160,7 @@
 @media screen and (min-width: 769px) {
     .basket_wrapper {
         width: var(--width-basket);
-        padding-top: calc(var(--height-category) - var(--height-category_headline));
+        padding-top: var(--padding-category-top);
         position: static;
         align-self: stretch;
 
