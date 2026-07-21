@@ -168,7 +168,7 @@ ul {
             }
 
             a:visited {
-                color: inherit;
+                color: var(--color-font-dark);
             }
 
             a:hover,
