@@ -96,7 +96,7 @@ let donMenu = [
                 alt: 'bowl of salad with beef topping',
             },
             {
-                name: 'Chicita Green Cerdo Salad',
+                name: 'Chiquita Green Cerdo Salad',
                 blurb: 'Small green salad, Cucumber, Carrots, Parsley, Radishes, lechon',
                 price: 7.9,
                 amount: 0,

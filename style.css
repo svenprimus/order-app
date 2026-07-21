@@ -296,6 +296,10 @@ ul {
                 }
             }
         }
+
+        .food_item:hover{
+            box-shadow: 2px 2px 4px 0px #00000026;
+        }
     }
 }
 
