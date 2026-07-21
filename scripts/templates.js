@@ -35,10 +35,14 @@ function getCategoryContentItem(categoryIndex, itemIndex) {
             </div>
             <div class="food_item_pricing">
                 <h3>${donMenu[categoryIndex].items[itemIndex].price.toFixed(2).replace('.', ',')} €</h3>
-                <button class="on_desktop" onclick="increaseAmountFromDesktop(${categoryIndex}, ${itemIndex})">
+                <button class="on_desktop" onclick="increaseAmountFromDesktop(${categoryIndex}, ${itemIndex})" 
+                    aria-controls="basket_list"
+                >
                     <p id="added_desktop_${categoryIndex}_${itemIndex}">Add to basket</p>
                 </button>
-                <button class="on_mobile" onclick="increaseAmount(${categoryIndex}, ${itemIndex})">
+                <button class="on_mobile" onclick="increaseAmount(${categoryIndex}, ${itemIndex})"
+                    aria-controls="basket_list"
+                >
                     <p id="added_mobile_${categoryIndex}_${itemIndex}">Add to basket</p>
                 </button>
             </div>
@@ -100,8 +104,11 @@ function getBasketItem(categoryIndex, itemIndex) {
                     </th>
                     <td>
                         <button id="button_trash_${categoryIndex}_${itemIndex}" 
-                        class="button_change_amount button_trash_img d_none" 
-                        onclick="deleteItem(${categoryIndex}, ${itemIndex})">
+                            class="button_change_amount button_trash_img d_none" 
+                            onclick="deleteItem(${categoryIndex}, ${itemIndex})"
+                            aria-controls="basket_list"
+                            aria-label="remove item from basket"
+                        >
                         </button>
                     </td>
                 </tr>
@@ -109,12 +116,18 @@ function getBasketItem(categoryIndex, itemIndex) {
                     <td class="basket_item_count">
                         <button id="button_decrease_${categoryIndex}_${itemIndex}" 
                             class="button_change_amount button_trash_img" 
-                            onclick="decreaseAmount(${categoryIndex}, ${itemIndex})">
+                            onclick="decreaseAmount(${categoryIndex}, ${itemIndex})"
+                            aria-controls="basket_list"
+                            aria-label="decrease item in basket by one"
+                        >
                         </button>
                         <p>${donMenu[categoryIndex].items[itemIndex].amount}</p>
                         <button id="button_increase_${categoryIndex}_${itemIndex}" 
                             class="button_change_amount"
-                            onclick="increaseAmount(${categoryIndex}, ${itemIndex})">
+                            onclick="increaseAmount(${categoryIndex}, ${itemIndex})"
+                            aria-controls="basket_list"
+                            aria-label="increase item in basket by one"
+                        >
                             +
                         </button>
                     </td>

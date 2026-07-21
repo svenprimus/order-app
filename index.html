@@ -36,23 +36,33 @@
                         </a>
                     </li>
                     <li>
-                        <button class="button_profile"></button>
+                        <button class="button_profile" aria-label="go to profile"></button>
                     </li>
                     <li>
-                        <button class="button_orders"></button>
+                        <button class="button_orders" aria-label="go to previous orders"></button>
                     </li>
                     <li class="button_basket_wrapper">
-                        <button class="button_basket" onclick="toggleBasketView()"></button>
+                        <button
+                            class="button_basket"
+                            onclick="toggleBasketView()"
+                            aria-controls="basket_wrapper"
+                        ></button>
                         <div
                             id="button_basket_overlay"
                             class="button_basket_overlay d_none"
                             onclick="toggleBasketView()"
+                            aria-controls="basket_wrapper"
                         >
                             <p id="button_basket_counter"></p>
                         </div>
                     </li>
                 </ul>
-                <button class="button_menu" onclick="toggleMenuView()">
+                <button
+                    class="button_menu"
+                    onclick="toggleMenuView()"
+                    aria-controls="nav_bar"
+                    aria-label="toggle view of navigation bar in desktop view"
+                >
                     <img src="./assets/icons/menu-button.svg" alt="menu-button" />
                 </button>
             </nav>
@@ -64,8 +74,13 @@
             </div>
             <div class="rating_stats_wrapper">
                 <div class="rating_stats">
-                    <button id="button_star" class="button_star_liked" onclick="toggleLike()"></button>
-                    <p class="rating">4.1</p>
+                    <button
+                        id="button_star"
+                        class="button_star_liked"
+                        onclick="toggleLike()"
+                        aria-controls="rating"
+                    ></button>
+                    <p id="rating" class="rating">4.1</p>
                     <p class="rating_counter">(<span id="rating_counter">317</span>)</p>
                 </div>
                 <h1>Don <span>Fuego</span></h1>
@@ -77,9 +92,9 @@
         </section>
 
         <main class="content_main">
-            <nav class="content_main_nav">
+            <nav id="content_main_nav" class="content_main_nav">
                 <ul id="content_main_nav_list" class="move_out_categories"></ul>
-                <button class="button_categories" onclick="toggleCategoryNavView()">
+                <button class="button_categories" onclick="toggleCategoryNavView()" aria-controls="content_main_nav">
                     <img src="./assets/icons/filter.svg" alt="filter icon" />
                 </button>
             </nav>
@@ -89,9 +104,7 @@
                     <div id="basket_wrapper_content" class="basket"></div>
                 </section>
             </section>
-            <dialog id="confirmationDialog" onclick="closeDialog()" aria-label="Order confirmed message">
-
-            </dialog>
+            <dialog id="confirmationDialog" onclick="closeDialog()" aria-label="Order confirmed message"></dialog>
         </main>
         <footer>
             <div>
