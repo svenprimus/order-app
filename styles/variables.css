@@ -12,7 +12,7 @@
     --height-footer: 128px;
     --height-nav-mobile: 78px;
     --height-nav-category: 76px;
-    --height-category: clamp(92px, calc((400px - 100svw) * 12 / 1000 + 104px), 104px);
+    --height-category: clamp(100px, calc((400px - 100svw) * 20 / 1000 + 120px), 120px);
     --height-category_headline: 60px;
     --height-basket-mobile: 85svh;
     --height-logo: 38px;
@@ -26,11 +26,13 @@
     --size-category-icon-desktop: 90px;
 
     --padding-content-inline: 130px;
+    --padding-category-left: 245px;
     --padding-content-block: clamp(32px, calc((100svw - 400px) * 18 / 1000 + 32px), 50px);
     --padding-content-limit: max(calc(50% - 720px), var(--padding-content-inline));
     --padding-content-small: clamp(16px, calc((100vw - 400px) * 114 / 840 + 16px), var(--padding-content-inline));
-    --padding-category-headline: clamp(16px, calc((100vw - 400px) * 152 / 840 + 16px), 168px);
-
+    --padding-category-icon: max(calc(50% - (720px - var(--padding-content-inline) - 48px)), var(--padding-content-inline));
+    --padding-category-text: max(calc(50% - (720px - var(--padding-content-inline) - 168px)), var(--padding-category-left));
+    --padding-category-top: 40px;
     /* TODO: */
     /* - font size clamping */
 }

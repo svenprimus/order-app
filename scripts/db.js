@@ -1,8 +1,9 @@
+const deliveryFee = 4.99;
 const pathToImages = './assets/img/menu_items/';
 let donMenu = [
     {
         category: 'Burger',
-        aside: '',
+        aside: '200 g',
         img: 'category-burger.svg',
         alt: 'comic picture of a hamburger',
         items: [
@@ -23,7 +24,7 @@ let donMenu = [
                 alt: 'big meaty bacon guacamole burger',
             },
             {
-                name: 'Beef Hot Salsa FUEGO Hamburgesa',
+                name: 'Beef Hot Salsa FUEGO Burger',
                 blurb: 'Beef, HOT Salsa, Cheese, Tomatoes, Lettuce, Onion',
                 price: 14.9,
                 amount: 0,
@@ -95,7 +96,7 @@ let donMenu = [
                 alt: 'bowl of salad with beef topping',
             },
             {
-                name: 'Chicita Green Cerdo Salad',
+                name: 'Chiquita Green Cerdo Salad',
                 blurb: 'Small green salad, Cucumber, Carrots, Parsley, Radishes, lechon',
                 price: 7.9,
                 amount: 0,
