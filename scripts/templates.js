@@ -35,8 +35,11 @@ function getCategoryContentItem(categoryIndex, itemIndex) {
             </div>
             <div class="food_item_pricing">
                 <h3>${donMenu[categoryIndex].items[itemIndex].price.toFixed(2).replace('.', ',')} €</h3>
-                <button onclick="increaseAmount(${categoryIndex}, ${itemIndex})">
-                    <p id="added_${categoryIndex}_${itemIndex}">Add to basket</p>
+                <button class="on_desktop" onclick="increaseAmountFromDesktop(${categoryIndex}, ${itemIndex})">
+                    <p id="added_desktop_${categoryIndex}_${itemIndex}">Add to basket</p>
+                </button>
+                <button class="on_mobile" onclick="increaseAmount(${categoryIndex}, ${itemIndex})">
+                    <p id="added_mobile_${categoryIndex}_${itemIndex}">Add to basket</p>
                 </button>
             </div>
         </li>
@@ -49,7 +52,7 @@ function getBasketItem(categoryIndex, itemIndex) {
             <table>
                 <tr>
                     <th>
-                        ${' ' + donMenu[categoryIndex].items[itemIndex].name}
+                        ${donMenu[categoryIndex].items[itemIndex].name}
                     </th>
                     <td>
                         <button id="button_trash_${categoryIndex}_${itemIndex}" 

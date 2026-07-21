@@ -95,6 +95,10 @@
                         display: flex;
                         align-items: center;
                         gap: 4px;
+                        p {
+                            width: 30px;
+                            text-align: center;
+                        }
                     }
                 }
 

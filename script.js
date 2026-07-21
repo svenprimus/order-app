@@ -1,7 +1,10 @@
+let subtotal = 0;
+
 function init() {
     renderCategoryNav();
     renderCategorySections();
     renderBasket();
+    toggleBasketBySubtotal();
 }
 
 function renderCategoryNav() {
@@ -46,7 +49,7 @@ function renderBasketItems() {
 }
 
 function renderBasketPricing() {
-    let subtotal = 0;
+    subtotal = 0;
     for (let categoryIndex = 0; categoryIndex < donMenu.length; categoryIndex++) {
         for (let itemIndex = 0; itemIndex < donMenu[categoryIndex].items.length; itemIndex++) {
             subtotal += donMenu[categoryIndex].items[itemIndex].amount * donMenu[categoryIndex].items[itemIndex].price;
@@ -55,12 +58,6 @@ function renderBasketPricing() {
     document.getElementById('payment_table_subtotal').innerHTML = subtotal.toFixed(2) + ' €';
     document.getElementById('payment_table_delivery').innerHTML = deliveryFee.toFixed(2) + ' €';
     document.getElementById('payment_table_total').innerHTML = (subtotal + deliveryFee).toFixed(2) + ' €';
-
-    if (subtotal > 0) {
-        showBasket();
-    } else {
-        hideBasket();
-    }
 }
 
 function renderBasketDecreaseButton(categoryIndex, itemIndex) {
@@ -83,6 +80,7 @@ function decreaseAmount(categoryIndex, itemIndex) {
     }
     renderBasket();
     renderAddButton(categoryIndex, itemIndex);
+    toggleBasketBySubtotal();
 }
 
 function increaseAmount(categoryIndex, itemIndex) {
@@ -91,10 +89,18 @@ function increaseAmount(categoryIndex, itemIndex) {
     renderAddButton(categoryIndex, itemIndex);
 }
 
+function increaseAmountFromDesktop(categoryIndex, itemIndex) {
+    donMenu[categoryIndex].items[itemIndex].amount++;
+    renderBasket();
+    renderAddButton(categoryIndex, itemIndex);
+    toggleBasketBySubtotal();
+}
+
 function deleteItem(categoryIndex, itemIndex) {
     donMenu[categoryIndex].items[itemIndex].amount = 0;
     renderBasket();
     renderAddButton(categoryIndex, itemIndex);
+    toggleBasketBySubtotal();
 }
 
 function completeOrder() {
@@ -104,13 +110,18 @@ function completeOrder() {
 }
 
 function renderAddButton(categoryIndex, itemIndex) {
-    const addButtonTextRef = document.getElementById('added_' + categoryIndex + '_' + itemIndex);
+    const addButtonTextRefDesktop = document.getElementById('added_desktop_' + categoryIndex + '_' + itemIndex);
+    const addButtonTextRefMobile = document.getElementById('added_mobile_' + categoryIndex + '_' + itemIndex);
     if (donMenu[categoryIndex].items[itemIndex].amount > 0) {
-        addButtonTextRef.innerHTML = 'Added ' + donMenu[categoryIndex].items[itemIndex].amount;
-        addButtonTextRef.setAttribute('style', 'color: var(--color-bg-shell);');
+        addButtonTextRefDesktop.innerHTML = 'Added ' + donMenu[categoryIndex].items[itemIndex].amount;
+        addButtonTextRefDesktop.setAttribute('style', 'color: var(--color-bg-shell);');
+        addButtonTextRefMobile.innerHTML = 'Added ' + donMenu[categoryIndex].items[itemIndex].amount;
+        addButtonTextRefMobile.setAttribute('style', 'color: var(--color-bg-shell);');
     } else {
-        addButtonTextRef.innerHTML = 'Add to basket';
-        addButtonTextRef.setAttribute('style', 'color: var(--color-font-dark);');
+        addButtonTextRefDesktop.innerHTML = 'Add to basket';
+        addButtonTextRefDesktop.setAttribute('style', 'color: var(--color-font-dark);');
+        addButtonTextRefMobile.innerHTML = 'Add to basket';
+        addButtonTextRefMobile.setAttribute('style', 'color: var(--color-font-dark);');
     }
 }
 
@@ -176,6 +187,10 @@ function toggleBasket() {
     } else if (basketRef.classList.contains('move_out_basket')) {
         showBasket();
     }
+}
+
+function toggleBasketBySubtotal() {
+    subtotal > 0 ? showBasket() : hideBasket();
 }
 
 function hideBasket() {

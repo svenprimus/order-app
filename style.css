@@ -297,13 +297,29 @@ ul {
             }
         }
 
-        .food_item:hover{
+        .food_item:hover {
             box-shadow: 2px 2px 4px 0px #00000026;
         }
     }
 }
 
+.on_desktop {
+    display: none;
+}
+
+.on_mobile {
+    display: initial;
+}
+
 @media screen and (min-width: 769px) {
+    .on_desktop {
+        display: initial;
+    }
+
+    .on_mobile {
+        display: none;
+    }
+
     .scroll_none {
         overflow-y: auto;
     }
