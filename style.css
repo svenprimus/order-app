@@ -345,6 +345,7 @@ dialog {
             line-height: 120%;
             font-family: 'Palanquin';
             font-weight: 700;
+            text-align: center;
         }
 
         h1 {
