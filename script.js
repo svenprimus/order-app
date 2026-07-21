@@ -1,6 +1,7 @@
 let totalAmount = 0;
 
 function init() {
+    getAmountsFromLocalStorage();
     renderCategoryNav();
     renderCategorySections();
     renderBasket();
@@ -148,40 +149,47 @@ function renderLikedCount() {
 // #endregion render
 
 // #region events
+function updateContent(categoryIndex, itemIndex) {
+    renderBasket();
+    renderAddButton(categoryIndex, itemIndex);
+    saveAmountsToLocalStorage();
+}
 
 function decreaseAmount(categoryIndex, itemIndex) {
     if (donMenu[categoryIndex].items[itemIndex].amount > 0) {
         donMenu[categoryIndex].items[itemIndex].amount--;
     }
-    renderBasket();
-    renderAddButton(categoryIndex, itemIndex);
+    updateContent(categoryIndex, itemIndex);
     toggleBasketViewByTotalAmount();
 }
 
 function increaseAmount(categoryIndex, itemIndex) {
     donMenu[categoryIndex].items[itemIndex].amount++;
-    renderBasket();
-    renderAddButton(categoryIndex, itemIndex);
+    updateContent(categoryIndex, itemIndex);
 }
 
 function increaseAmountFromDesktop(categoryIndex, itemIndex) {
     donMenu[categoryIndex].items[itemIndex].amount++;
-    renderBasket();
-    renderAddButton(categoryIndex, itemIndex);
+    updateContent(categoryIndex, itemIndex);
     toggleBasketViewByTotalAmount();
 }
 
 function deleteItem(categoryIndex, itemIndex) {
     donMenu[categoryIndex].items[itemIndex].amount = 0;
-    renderBasket();
-    renderAddButton(categoryIndex, itemIndex);
+    updateContent(categoryIndex, itemIndex);
     toggleBasketViewByTotalAmount();
 }
 
-function completeOrder() {
-    // TODO: show modal
-    // TODO: reset amount and addbuttons
-    // TODO: hide basket
+function deleteAll() {
+    for (let categoryIndex = 0; categoryIndex < donMenu.length; categoryIndex++) {
+        for (let itemIndex = 0; itemIndex < donMenu[categoryIndex].items.length; itemIndex++) {
+            donMenu[categoryIndex].items[itemIndex].amount = 0;
+            renderAddButton(categoryIndex, itemIndex);
+        }
+    }
+    renderBasket();
+    hideBasket();
+    saveAmountsToLocalStorage();
 }
 
 function toggleLike() {
@@ -224,6 +232,28 @@ function toggleCategoryNavView() {
     }
 }
 
+function openDialog() {
+    const dialogRef = document.getElementById('confirmationDialog');
+    dialogRef.innerHTML = getDialogContent();
+    dialogRef.showModal();
+    setDialogFocusOnTop();
+    dialogRef.classList.add('opened');
+    deleteAll();
+    setTimeout(() => {
+        dialogRef.close();
+    }, 5000);
+}
+
+function closeDialog() {
+    const dialogRef = document.getElementById('confirmationDialog');
+    dialogRef.classList.remove('opened');
+    dialogRef.close();
+}
+
+function stopDialogPropagation(event) {
+    event.stopPropagation();
+}
+
 // #endregion events
 
 function hideBasket() {
@@ -249,5 +279,32 @@ function updateGlobalAmount() {
     const hasAmount = getHasAmount();
     for (let index = 0; index < hasAmount.length; index++) {
         totalAmount += hasAmount[index].amount;
+    }
+}
+
+function setDialogFocusOnTop() {
+    const dialogCloseRef = document.getElementById('button_close_dialog');
+    dialogCloseRef.focus();
+}
+
+function saveAmountsToLocalStorage() {
+    let hasAmount = [];
+    for (let categoryIndex = 0; categoryIndex < donMenu.length; categoryIndex++) {
+        for (let itemIndex = 0; itemIndex < donMenu[categoryIndex].items.length; itemIndex++) {
+            const amount = donMenu[categoryIndex].items[itemIndex].amount;
+            if (amount > 0) {
+                hasAmount.push({ categoryIndex: categoryIndex, itemIndex: itemIndex, amount: amount });
+            }
+        }
+    }
+    localStorage.setItem('hasAmount', JSON.stringify(hasAmount));
+}
+
+function getAmountsFromLocalStorage() {
+    const hasAmount = JSON.parse(localStorage.getItem('hasAmount'));
+    if (hasAmount !== null) {
+        for (let i = 0; i < hasAmount.length; i++) {
+            donMenu[hasAmount[i].categoryIndex].items[hasAmount[i].itemIndex].amount = hasAmount[i].amount;
+        }
     }
 }
