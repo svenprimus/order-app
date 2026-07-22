@@ -74,6 +74,12 @@
                 table {
                     width: 100%;
 
+                    .basket_item_name {
+                        display: flex;
+                        align-items: flex-start;
+                        column-gap: 5px;;
+                    }
+
                     th {
                         font-size: 22px;
                         font-weight: 700;

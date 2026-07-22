@@ -1,7 +1,9 @@
 let totalAmount = 0;
+let isBasketEmpty = true;
 
 function init() {
     getAmountsFromLocalStorage();
+    updateGlobalAmount();
     renderCategoryNav();
     renderCategorySections();
     renderBasket();
@@ -39,7 +41,6 @@ function renderCategoryHeaderAside(categoryIndex) {
 }
 
 function renderBasket() {
-    updateGlobalAmount();
     if (totalAmount > 0) {
         renderBasketFilled();
     } else {
@@ -51,10 +52,24 @@ function renderBasketFilled() {
     document.getElementById('basket_wrapper_content').innerHTML = getBasketFilledWrapper();
     renderBasketItems();
     renderBasketPricing();
+    renderBasketCount();
+    isBasketEmpty = false;
 }
 
 function renderBasketEmpty() {
     document.getElementById('basket_wrapper_content').innerHTML = getBasketEmptyWrapper();
+    renderBasketCount();
+    isBasketEmpty = true;
+}
+
+function renderBasketUpdates(categoryIndex, itemIndex) {
+    if (donMenu[categoryIndex].items[itemIndex].amount <= 1) {
+        renderBasketItems();
+    } else {
+        renderBasketDecreaseButton(categoryIndex, itemIndex);
+        renderBasketItemCount(categoryIndex, itemIndex);
+    }
+    renderBasketPricing();
     renderBasketCount();
 }
 
@@ -69,19 +84,32 @@ function renderBasketItems() {
             }
         }
     }
-    renderBasketCount();
 }
 
 function renderBasketPricing() {
     if (totalAmount > 0) {
         let subtotal = 0;
-        const hasAmount = getHasAmount();
-        for (let index = 0; index < hasAmount.length; index++) {
-            subtotal += hasAmount[index].amount * hasAmount[index].price;
+        for (let categoryIndex = 0; categoryIndex < donMenu.length; categoryIndex++) {
+            for (let itemIndex = 0; itemIndex < donMenu[categoryIndex].items.length; itemIndex++) {
+                if (donMenu[categoryIndex].items[itemIndex].amount > 0) {
+                    const itemTotal =
+                        donMenu[categoryIndex].items[itemIndex].amount * donMenu[categoryIndex].items[itemIndex].price;
+                    subtotal += itemTotal;
+                    document.getElementById('item_price_' + categoryIndex + '_' + itemIndex).innerHTML =
+                        itemTotal.toFixed(2) + ' €';
+                }
+            }
         }
         document.getElementById('payment_table_subtotal').innerHTML = subtotal.toFixed(2) + ' €';
         document.getElementById('payment_table_delivery').innerHTML = deliveryFee.toFixed(2) + ' €';
         document.getElementById('payment_table_total').innerHTML = (subtotal + deliveryFee).toFixed(2) + ' €';
+    }
+}
+
+function renderBasketItemCount(categoryIndex, itemIndex) {
+    const countRef = document.getElementById('item_count_' + categoryIndex + '_' + itemIndex);
+    if (donMenu[categoryIndex].items[itemIndex].amount > 1) {
+        countRef.innerHTML = donMenu[categoryIndex].items[itemIndex].amount;
     }
 }
 
@@ -150,7 +178,12 @@ function renderLikedCount() {
 
 // #region events
 function updateContent(categoryIndex, itemIndex) {
-    renderBasket();
+    updateGlobalAmount();
+    if ((isBasketEmpty && totalAmount > 0) || (!isBasketEmpty && totalAmount === 0)) {
+        renderBasket();
+    } else {
+        renderBasketUpdates(categoryIndex, itemIndex);
+    }
     renderAddButton(categoryIndex, itemIndex);
     saveAmountsToLocalStorage();
 }

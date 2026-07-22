@@ -11,6 +11,10 @@
     display: initial;
 }
 
+.align_end {
+    align-self: flex-end;
+}
+
 p {
     color: var(--color-font-dark);
     font-family: 'Palanquin';
