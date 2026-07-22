@@ -86,7 +86,6 @@ function renderBasketItems() {
     }
 }
 
-// TODO lines
 function renderBasketPricing() {
     if (totalAmount > 0) {
         const subtotal = renderBasketPricingPerItem();
