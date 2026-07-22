@@ -131,7 +131,7 @@ function getBasketItem(categoryIndex, itemIndex) {
                             +
                         </button>
                     </td>
-                    <th>${donMenu[categoryIndex].items[itemIndex].price.toFixed(2) + ' ' + '€'}</th>
+                    <th id="item_price_${categoryIndex}_${itemIndex}">${donMenu[categoryIndex].items[itemIndex].price.toFixed(2) + ' ' + '€'}</th>
                 </tr>
             </table>
         </li>

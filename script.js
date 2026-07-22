@@ -75,9 +75,16 @@ function renderBasketItems() {
 function renderBasketPricing() {
     if (totalAmount > 0) {
         let subtotal = 0;
-        const hasAmount = getHasAmount();
-        for (let index = 0; index < hasAmount.length; index++) {
-            subtotal += hasAmount[index].amount * hasAmount[index].price;
+        for (let categoryIndex = 0; categoryIndex < donMenu.length; categoryIndex++) {
+            for (let itemIndex = 0; itemIndex < donMenu[categoryIndex].items.length; itemIndex++) {
+                if (donMenu[categoryIndex].items[itemIndex].amount > 0) {
+                    const itemTotal =
+                        donMenu[categoryIndex].items[itemIndex].amount * donMenu[categoryIndex].items[itemIndex].price;
+                    subtotal += itemTotal;
+                    document.getElementById('item_price_' + categoryIndex + '_' + itemIndex).innerHTML =
+                        itemTotal.toFixed(2) + ' €';
+                }
+            }
         }
         document.getElementById('payment_table_subtotal').innerHTML = subtotal.toFixed(2) + ' €';
         document.getElementById('payment_table_delivery').innerHTML = deliveryFee.toFixed(2) + ' €';
