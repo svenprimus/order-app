@@ -29,7 +29,7 @@ function renderCategorySections() {
         const categoryRef = document.getElementById('category_content_' + categoryIndex);
         for (let itemIndex = 0; itemIndex < donMenu[categoryIndex].items.length; itemIndex++) {
             categoryRef.innerHTML += getCategoryContentItem(categoryIndex, itemIndex);
-            renderAddButton(categoryIndex, itemIndex);
+            renderAddToBasketButton(categoryIndex, itemIndex);
         }
         renderCategoryHeaderAside(categoryIndex);
     }
@@ -86,24 +86,29 @@ function renderBasketItems() {
     }
 }
 
+// TODO lines
 function renderBasketPricing() {
     if (totalAmount > 0) {
-        let subtotal = 0;
-        for (let categoryIndex = 0; categoryIndex < donMenu.length; categoryIndex++) {
-            for (let itemIndex = 0; itemIndex < donMenu[categoryIndex].items.length; itemIndex++) {
-                if (donMenu[categoryIndex].items[itemIndex].amount > 0) {
-                    const itemTotal =
-                        donMenu[categoryIndex].items[itemIndex].amount * donMenu[categoryIndex].items[itemIndex].price;
-                    subtotal += itemTotal;
-                    document.getElementById('item_price_' + categoryIndex + '_' + itemIndex).innerHTML =
-                        itemTotal.toFixed(2) + ' €';
-                }
-            }
-        }
+        const subtotal = renderBasketPricingPerItem();
         document.getElementById('payment_table_subtotal').innerHTML = subtotal.toFixed(2) + ' €';
         document.getElementById('payment_table_delivery').innerHTML = deliveryFee.toFixed(2) + ' €';
         document.getElementById('payment_table_total').innerHTML = (subtotal + deliveryFee).toFixed(2) + ' €';
     }
+}
+
+function renderBasketPricingPerItem() {
+    let subtotal = 0;
+    for (let categoryId = 0; categoryId < donMenu.length; categoryId++) {
+        for (let itemId = 0; itemId < donMenu[categoryId].items.length; itemId++) {
+            if (donMenu[categoryId].items[itemId].amount > 0) {
+                const itemTotal = donMenu[categoryId].items[itemId].amount * donMenu[categoryId].items[itemId].price;
+                subtotal += itemTotal;
+                document.getElementById('item_price_' + categoryId + '_' + itemId).innerHTML =
+                    itemTotal.toFixed(2) + ' €';
+            }
+        }
+    }
+    return subtotal;
 }
 
 function renderBasketItemCount(categoryIndex, itemIndex) {
@@ -127,20 +132,30 @@ function renderBasketDecreaseButton(categoryIndex, itemIndex) {
     }
 }
 
-function renderAddButton(categoryIndex, itemIndex) {
+function renderAddToBasketButton(categoryIndex, itemIndex) {
+    if (donMenu[categoryIndex].items[itemIndex].amount > 0) {
+        renderAddToBasketButtonAfter(categoryIndex, itemIndex);
+    } else {
+        renderAddToBasketButtonBefore(categoryIndex, itemIndex);
+    }
+}
+
+function renderAddToBasketButtonAfter(categoryIndex, itemIndex) {
     const addButtonTextRefDesktop = document.getElementById('added_desktop_' + categoryIndex + '_' + itemIndex);
     const addButtonTextRefMobile = document.getElementById('added_mobile_' + categoryIndex + '_' + itemIndex);
-    if (donMenu[categoryIndex].items[itemIndex].amount > 0) {
-        addButtonTextRefDesktop.innerHTML = 'Added ' + donMenu[categoryIndex].items[itemIndex].amount;
-        addButtonTextRefDesktop.setAttribute('style', 'color: var(--color-bg-shell);');
-        addButtonTextRefMobile.innerHTML = 'Added ' + donMenu[categoryIndex].items[itemIndex].amount;
-        addButtonTextRefMobile.setAttribute('style', 'color: var(--color-bg-shell);');
-    } else {
-        addButtonTextRefDesktop.innerHTML = 'Add to basket';
-        addButtonTextRefDesktop.setAttribute('style', 'color: var(--color-font-dark);');
-        addButtonTextRefMobile.innerHTML = 'Add to basket';
-        addButtonTextRefMobile.setAttribute('style', 'color: var(--color-font-dark);');
-    }
+    addButtonTextRefDesktop.innerHTML = 'Added ' + donMenu[categoryIndex].items[itemIndex].amount;
+    addButtonTextRefDesktop.setAttribute('style', 'color: var(--color-bg-shell);');
+    addButtonTextRefMobile.innerHTML = 'Added ' + donMenu[categoryIndex].items[itemIndex].amount;
+    addButtonTextRefMobile.setAttribute('style', 'color: var(--color-bg-shell);');
+}
+
+function renderAddToBasketButtonBefore(categoryIndex, itemIndex) {
+    const addButtonTextRefDesktop = document.getElementById('added_desktop_' + categoryIndex + '_' + itemIndex);
+    const addButtonTextRefMobile = document.getElementById('added_mobile_' + categoryIndex + '_' + itemIndex);
+    addButtonTextRefDesktop.innerHTML = 'Add to basket';
+    addButtonTextRefDesktop.setAttribute('style', 'color: var(--color-font-dark);');
+    addButtonTextRefMobile.innerHTML = 'Add to basket';
+    addButtonTextRefMobile.setAttribute('style', 'color: var(--color-font-dark);');
 }
 
 function renderBasketCountOverlay() {
@@ -184,7 +199,7 @@ function updateContent(categoryIndex, itemIndex) {
     } else {
         renderBasketUpdates(categoryIndex, itemIndex);
     }
-    renderAddButton(categoryIndex, itemIndex);
+    renderAddToBasketButton(categoryIndex, itemIndex);
     saveAmountsToLocalStorage();
 }
 
@@ -217,7 +232,7 @@ function deleteAll() {
     for (let categoryIndex = 0; categoryIndex < donMenu.length; categoryIndex++) {
         for (let itemIndex = 0; itemIndex < donMenu[categoryIndex].items.length; itemIndex++) {
             donMenu[categoryIndex].items[itemIndex].amount = 0;
-            renderAddButton(categoryIndex, itemIndex);
+            renderAddToBasketButton(categoryIndex, itemIndex);
         }
     }
     updateGlobalAmount();
