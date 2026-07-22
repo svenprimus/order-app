@@ -98,7 +98,7 @@ function getBasketItem(categoryIndex, itemIndex) {
     return /*html*/ `
         <li class="basket_item">
             <table>
-                <tr>
+                <tr class="basket_item_name">
                     <th>
                         ${donMenu[categoryIndex].items[itemIndex].name}
                     </th>
@@ -121,7 +121,10 @@ function getBasketItem(categoryIndex, itemIndex) {
                             aria-label="decrease item in basket by one"
                         >
                         </button>
-                        <p>${donMenu[categoryIndex].items[itemIndex].amount}</p>
+                        <p id="item_count_${categoryIndex}_${itemIndex}"
+                        >
+                            ${donMenu[categoryIndex].items[itemIndex].amount}
+                        </p>
                         <button id="button_increase_${categoryIndex}_${itemIndex}" 
                             class="button_change_amount"
                             onclick="increaseAmount(${categoryIndex}, ${itemIndex})"
@@ -139,7 +142,7 @@ function getBasketItem(categoryIndex, itemIndex) {
 }
 
 function getDialogContent() {
-    return /*html*/`
+    return /*html*/ `
         <div
             class="dialog_content_wrapper"
             aria-description="dialog window to confirm order"
@@ -156,5 +159,5 @@ function getDialogContent() {
             <h1>Order Confirmed!</h1>
             <h2>Your food is on the way!</h2>
         </div>        
-    `
+    `;
 }
