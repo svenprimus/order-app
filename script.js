@@ -52,13 +52,13 @@ function renderBasketFilled() {
     document.getElementById('basket_wrapper_content').innerHTML = getBasketFilledWrapper();
     renderBasketItems();
     renderBasketPricing();
-    renderBasketCount();
+    renderBasketCountOverlay();
     isBasketEmpty = false;
 }
 
 function renderBasketEmpty() {
     document.getElementById('basket_wrapper_content').innerHTML = getBasketEmptyWrapper();
-    renderBasketCount();
+    renderBasketCountOverlay();
     isBasketEmpty = true;
 }
 
@@ -70,7 +70,7 @@ function renderBasketUpdates(categoryIndex, itemIndex) {
         renderBasketItemCount(categoryIndex, itemIndex);
     }
     renderBasketPricing();
-    renderBasketCount();
+    renderBasketCountOverlay();
 }
 
 function renderBasketItems() {
@@ -143,7 +143,7 @@ function renderAddButton(categoryIndex, itemIndex) {
     }
 }
 
-function renderBasketCount() {
+function renderBasketCountOverlay() {
     if (totalAmount > 0) {
         document.getElementById('button_basket_overlay').classList.remove('d_none');
         document.getElementById('button_basket_counter').innerHTML = totalAmount;
@@ -220,7 +220,8 @@ function deleteAll() {
             renderAddButton(categoryIndex, itemIndex);
         }
     }
-    renderBasket();
+    updateGlobalAmount();
+    renderBasketEmpty();
     hideBasket();
     saveAmountsToLocalStorage();
 }
