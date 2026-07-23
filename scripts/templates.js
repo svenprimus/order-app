@@ -31,7 +31,12 @@ function getCategoryContentItem(categoryIndex, itemIndex) {
             />
             <div class="food_item_description">
                 <h3>${donMenu[categoryIndex].items[itemIndex].name}</h3>
-                <p>${donMenu[categoryIndex].items[itemIndex].blurb}</p>
+                    <p>${donMenu[categoryIndex].items[itemIndex].blurb}
+                    <span class="tooltiptext"
+                    >
+                        ${donMenu[categoryIndex].items[itemIndex].blurb}
+                    </span>
+                </p>
             </div>
             <div class="food_item_pricing">
                 <h3>${donMenu[categoryIndex].items[itemIndex].price.toFixed(2).replace('.', ',')} €</h3>

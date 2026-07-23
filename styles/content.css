@@ -70,6 +70,7 @@
                 flex-direction: column;
                 flex-grow: 1;
                 gap: 8px;
+                position: relative;
 
                 p {
                     display: -webkit-box;
@@ -79,10 +80,13 @@
                     overflow: hidden;
                 }
 
-                p:hover {
-                    z-index: 2;
-                    overflow: visible;
+                p:hover .tooltiptext {
+                    visibility: visible;
                 }
+            }
+            
+            .food_item_description:hover .tooltiptext {
+                visibility: visible;
             }
 
             .food_item_pricing {
